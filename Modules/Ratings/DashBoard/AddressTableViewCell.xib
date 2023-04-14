@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddressTableViewCell" rowHeight="109" id="6eE-BY-Qyr" customClass="AddressTableViewCell" customModule="Watermelon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6eE-BY-Qyr" id="UnS-Zb-a84">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iB-gE-hdO">
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="109"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqu-cw-YDi">
+                                <rect key="frame" x="16" y="8.5" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="ki5-fK-DX8"/>
+                                    <constraint firstAttribute="width" constant="26" id="r6p-iY-hoq"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="WhiteRadio"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHX-Bh-BBc">
+                                <rect key="frame" x="50" y="11" width="304" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cHX-Bh-BBc" secondAttribute="bottom" constant="11" id="783-Lx-AHN"/>
+                            <constraint firstItem="Jqu-cw-YDi" firstAttribute="leading" secondItem="0iB-gE-hdO" secondAttribute="leading" constant="16" id="GQ3-Ap-0Hr"/>
+                            <constraint firstAttribute="trailing" secondItem="cHX-Bh-BBc" secondAttribute="trailing" constant="10" id="MU7-ec-aAA"/>
+                            <constraint firstItem="cHX-Bh-BBc" firstAttribute="centerY" secondItem="Jqu-cw-YDi" secondAttribute="centerY" id="XDp-DV-iRm"/>
+                            <constraint firstItem="cHX-Bh-BBc" firstAttribute="leading" secondItem="Jqu-cw-YDi" secondAttribute="trailing" constant="8" id="nzX-Tc-Wj8"/>
+                            <constraint firstItem="cHX-Bh-BBc" firstAttribute="top" secondItem="0iB-gE-hdO" secondAttribute="top" constant="11" id="o42-Th-d9i"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0iB-gE-hdO" firstAttribute="top" secondItem="UnS-Zb-a84" secondAttribute="top" id="Hdh-Ko-ImA"/>
+                    <constraint firstItem="0iB-gE-hdO" firstAttribute="leading" secondItem="UnS-Zb-a84" secondAttribute="leading" id="SLm-cU-5wj"/>
+                    <constraint firstAttribute="bottom" secondItem="0iB-gE-hdO" secondAttribute="bottom" id="f1G-kh-3dW"/>
+                    <constraint firstAttribute="trailing" secondItem="0iB-gE-hdO" secondAttribute="trailing" id="xyC-ob-glw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="LZV-oa-rKx"/>
+            <connections>
+                <outlet property="addressLabel" destination="cHX-Bh-BBc" id="Zfm-oI-Cfe"/>
+                <outlet property="selectButton" destination="Jqu-cw-YDi" id="1wx-gb-QDQ"/>
+            </connections>
+            <point key="canvasLocation" x="163.768115942029" y="102.12053571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="WhiteRadio" width="19" height="19"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

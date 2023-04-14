@@ -1,0 +1,58 @@
+diff a/Watermelon/Design/Authentication.storyboard b/Watermelon/Design/Authentication.storyboard	(rejected hunks)
+@@ -1,9 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
++<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+     <device id="retina6_1" orientation="portrait" appearance="light"/>
+     <dependencies>
+         <deployment identifier="iOS"/>
+-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
++        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+@@ -1339,7 +1339,7 @@
+                                                                                         </constraints>
+                                                                                     </imageView>
+                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRN Certificate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSh-7i-xFJ" userLabel="TRN Certificate">
+-                                                                                        <rect key="frame" x="108.5" y="44" width="117.5" height="36"/>
++                                                                                        <rect key="frame" x="108.5" y="44" width="117" height="36"/>
+                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                         <nil key="textColor"/>
+                                                                                         <nil key="highlightedColor"/>
+@@ -4651,7 +4651,7 @@
+                                 <rect key="frame" x="20" y="787" width="374" height="55"/>
+                                 <subviews>
+                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ROP-De-UxN">
+-                                        <rect key="frame" x="126" y="14" width="122.5" height="27.5"/>
++                                        <rect key="frame" x="129" y="14.5" width="116.5" height="26"/>
+                                         <color key="pageIndicatorTintColor" red="0.4823529412" green="0.52549019610000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                         <color key="currentPageIndicatorTintColor" red="0.92549019610000005" green="0.094117647060000004" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                     </pageControl>
+@@ -6037,7 +6037,7 @@
+                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                         <subviews>
+                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-H9-zYW">
+-                                <rect key="frame" x="0.0" y="-4" width="414" height="900"/>
++                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                             </view>
+                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1i-4l-b3v">
+@@ -6052,7 +6052,7 @@
+                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                         <nil key="highlightedColor"/>
+                                     </label>
+-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRP-Ul-VZp">
++                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="GRP-Ul-VZp">
+                                         <rect key="frame" x="46" y="105.5" width="239" height="61"/>
+                                         <string key="text">Thank you for your referral. Our
+ supporteam?will reach out
+@@ -6842,7 +6842,7 @@ shortiv</string>
+                                                 <rect key="frame" x="16" y="380.5" width="382" height="105.5"/>
+                                                 <subviews>
+                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MZ-MD-ik3">
+-                                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="20.5"/>
++                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="20.5"/>
+                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                         <color key="textColor" red="0.35686274509999999" green="0.41960784309999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                         <nil key="highlightedColor"/>

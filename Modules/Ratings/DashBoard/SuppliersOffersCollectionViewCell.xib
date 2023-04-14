@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SuppliersOffersCollectionViewCell" id="Mtb-aR-RW7" customClass="SuppliersOffersCollectionViewCell" customModule="Watermelon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="217"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="255" height="217"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gv-HF-Wci">
+                        <rect key="frame" x="0.0" y="0.0" width="247" height="217"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offers" translatesAutoresizingMaskIntoConstraints="NO" id="zJ1-cE-MD5">
+                        <rect key="frame" x="0.0" y="0.0" width="247" height="217"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="Bv1-27-Ase"/>
+            <constraints>
+                <constraint firstItem="zJ1-cE-MD5" firstAttribute="top" secondItem="Mtb-aR-RW7" secondAttribute="top" id="53D-Zv-G2y"/>
+                <constraint firstAttribute="trailing" secondItem="7gv-HF-Wci" secondAttribute="trailing" constant="8" id="8CT-4E-dwE"/>
+                <constraint firstItem="zJ1-cE-MD5" firstAttribute="leading" secondItem="Mtb-aR-RW7" secondAttribute="leading" id="Bal-pB-19a"/>
+                <constraint firstItem="7gv-HF-Wci" firstAttribute="leading" secondItem="Mtb-aR-RW7" secondAttribute="leading" id="YyT-u9-von"/>
+                <constraint firstAttribute="bottom" secondItem="zJ1-cE-MD5" secondAttribute="bottom" id="doN-VU-SFq"/>
+                <constraint firstAttribute="trailing" secondItem="zJ1-cE-MD5" secondAttribute="trailing" constant="8" id="kat-Zh-0hG"/>
+                <constraint firstAttribute="bottom" secondItem="7gv-HF-Wci" secondAttribute="bottom" id="vgz-1Q-GIQ"/>
+                <constraint firstItem="7gv-HF-Wci" firstAttribute="top" secondItem="Mtb-aR-RW7" secondAttribute="top" id="z8j-9I-a59"/>
+            </constraints>
+            <size key="customSize" width="255" height="217"/>
+            <connections>
+                <outlet property="backGrundView" destination="7gv-HF-Wci" id="dnk-Vv-BK9"/>
+                <outlet property="suppliersImageView" destination="zJ1-cE-MD5" id="Jkx-P9-V1f"/>
+            </connections>
+            <point key="canvasLocation" x="170.28985507246378" y="133.59375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="offers" width="550" height="330"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

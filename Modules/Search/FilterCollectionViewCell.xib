@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCollectionViewCell" id="urV-kB-M6R" customClass="FilterCollectionViewCell" customModule="Watermelon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="112"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="205" height="112"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dds-57-27j">
+                        <rect key="frame" x="5" y="4" width="195" height="104"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLb-Il-jH7">
+                                <rect key="frame" x="16" y="32" width="163" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Gi6-Ll-Xi8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.96862745100000003" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kLb-Il-jH7" firstAttribute="centerY" secondItem="dds-57-27j" secondAttribute="centerY" id="aqb-XD-v7v"/>
+                            <constraint firstItem="kLb-Il-jH7" firstAttribute="leading" secondItem="dds-57-27j" secondAttribute="leading" constant="16" id="lnQ-uX-Wnj"/>
+                            <constraint firstAttribute="trailing" secondItem="kLb-Il-jH7" secondAttribute="trailing" constant="16" id="oRY-kG-Jrw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="6pz-Mk-lA8"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dds-57-27j" secondAttribute="trailing" constant="5" id="Akl-UQ-0lX"/>
+                <constraint firstAttribute="bottom" secondItem="dds-57-27j" secondAttribute="bottom" constant="4" id="Jzc-1v-NR1"/>
+                <constraint firstItem="dds-57-27j" firstAttribute="leading" secondItem="urV-kB-M6R" secondAttribute="leading" constant="5" id="SAC-xc-P3U"/>
+                <constraint firstItem="dds-57-27j" firstAttribute="top" secondItem="urV-kB-M6R" secondAttribute="top" constant="4" id="avd-T2-cNP"/>
+            </constraints>
+            <size key="customSize" width="205" height="112"/>
+            <connections>
+                <outlet property="bgView" destination="dds-57-27j" id="NXb-uy-9SW"/>
+                <outlet property="filteredLabel" destination="kLb-Il-jH7" id="x0s-9u-o6W"/>
+            </connections>
+            <point key="canvasLocation" x="240" y="92"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "500-popular-california-almonds-tasty-crunchy-nutritious-badaam-original-imagasrgszqbh3bg_result_result_result_result_result_result_result_result_resul.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "500-popular-california-almonds-tasty-crunchy-nutritious-badaam-original-imagasrgszqbh3bg_result_result_result_result_result_result_result_result_resul@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "500-popular-california-almonds-tasty-crunchy-nutritious-badaam-original-imagasrgszqbh3bg_result_result_result_result_result_result_result_result_resul@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

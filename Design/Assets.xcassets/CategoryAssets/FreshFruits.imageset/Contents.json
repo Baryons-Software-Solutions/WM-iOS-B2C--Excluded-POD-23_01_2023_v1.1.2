@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "—Pngtree—fruits tropical_4172131.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "—Pngtree—fruits tropical_4172131@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "—Pngtree—fruits tropical_4172131@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
