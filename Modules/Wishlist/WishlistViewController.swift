@@ -56,7 +56,7 @@ class WishlistViewController: UIViewController {
     var arrTempSupplierID              = NSMutableArray()
     var arrTempPrinceID                = NSMutableArray()
     var arrTempBrandID                 = NSMutableArray()
-    var supplierID                     = ""
+    var supplierIDNumber                     = ""
     var arrItemDetailResponse          : ItemDetailResponse?
     var arrProductList                 = [Product]()
     var isBottomRefreshMySupplierList  = false
@@ -100,7 +100,7 @@ class WishlistViewController: UIViewController {
         self.WishlistTableView.register(UINib.init(nibName: "WishlistTblCell", bundle: nil), forCellReuseIdentifier: "WishlistTblCell")
         self.WishlistTableView.register(UINib.init(nibName: "WishlistContinueTableViewCell", bundle: nil), forCellReuseIdentifier: "WishlistContinueTableViewCell")
     }
-    @IBAction func btnCancel(_ sender: Any) {
+    @IBAction func BtnCancel(_ sender: Any) {
         filterBGView.isHidden = true
         vwDelete.isHidden   = true
     }
@@ -115,7 +115,7 @@ class WishlistViewController: UIViewController {
         
     }
     
-    @IBAction func btnDelete(_ sender: Any) {
+    @IBAction func BtnDelete(_ sender: Any) {
         filterBGView.isHidden = true
         vwDelete.isHidden   = true
         removeProductFromWishlist(productCode: arrWishlistResponce[selectedIndex].productCode ?? "")
@@ -322,7 +322,7 @@ extension WishlistViewController{
         if showloading{
             showLoader()
         }
-        params = ["start":0,"end":0,"page":page,"sort_method":"asc","keyword":search,"sort_by":"product_name","outlet_id":outletID,"category_id":categoryId,"subcategory_id":"","supplier_id":self.supplierID,"brand": brandIDArray,"status":1,"price": priceIDArray,"platform":"mobile","app_type":"b2c", "fcm_token_ios": "\(USERDEFAULTS.getDataForKey(.fcmToken))"]
+        params = ["start":0,"end":0,"page":page,"sort_method":"asc","keyword":search,"sort_by":"product_name","outlet_id":outletID,"category_id":categoryId,"subcategory_id":"","supplier_id":self.supplierIDNumber,"brand": brandIDArray,"status":1,"price": priceIDArray,"platform":"mobile","app_type":"b2c", "fcm_token_ios": "\(USERDEFAULTS.getDataForKey(.fcmToken))"]
         print("API :\(url)")
         print("params:\(params ?? [String: Any]())")
         do{

@@ -84,7 +84,7 @@ class PlaceOrderFooterTblCell: UITableViewCell {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)

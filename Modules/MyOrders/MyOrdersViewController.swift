@@ -223,7 +223,7 @@ class MyOrdersViewController: UIViewController {
                 self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: searchedText)
             } else {
                 self.arrOrderResponse.removeAll()
-                self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: searchedText)
+                self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: "")
             }
         } else {
             if self.selectedIndexPath ==  IndexPath(row: 1, section: 0)  {
@@ -252,10 +252,13 @@ class MyOrdersViewController: UIViewController {
         searchTextField.resignFirstResponder()
     }
     @IBAction func btnSignIn(_ sender: Any) {
+        let dashboardVC = AuthenticationStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        self.navigationController?.pushViewController(dashboardVC, animated: true)
+        dashboardVC.modalPresentationStyle = .fullScreen
         
     }
     
-    @IBAction func BtnOrderNow(_ sender: Any) {
+    @IBAction func btnOrderNow(_ sender: Any) {
         if String(describing: USERDEFAULTS.getDataForKey(.isLogin)) == "false" {
             let dashboardVC = AuthenticationStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
             self.navigationController?.pushViewController(dashboardVC, animated: true)
@@ -340,7 +343,7 @@ class MyOrdersViewController: UIViewController {
         self.filterBGView.isHidden  = false
         self.supplierCollectionView.reloadData()
         let supplierheight = supplierCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 240 ? supplierheight + 10 : supplierheight + 10
+        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 239 ? supplierheight + 10 : supplierheight + 10
         self.supplierCollectionView.layoutIfNeeded()
         self.supplierCollectionView.reloadData()
         self.outletCollectionView.reloadData()
@@ -350,7 +353,7 @@ class MyOrdersViewController: UIViewController {
         self.outletCollectionView.reloadData()
         self.statusCollectionView.reloadData()
         let height = statusCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.statusCollectionViewHeightConstriant.constant = height > 240 ? height + 10 : height + 10
+        self.statusCollectionViewHeightConstriant.constant = height > 241 ? height + 10 : height + 10
         self.statusCollectionView.layoutIfNeeded()
         self.statusCollectionView.reloadData()
     }
@@ -544,7 +547,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
             if self.arrOrderResponse[indexPath.row].dueDate != nil{
                 cell?.payementDueLabel.text = "Payement Due by " + "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
             }else{
-                cell?.payementDueLabel.text =  "Payement Due by " + "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
+                cell?.payementDueLabel.text =  "Payement Due " + "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
             }
             
             let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (self.arrOrderResponse[indexPath.row].supplierInfo.supplierProfile?.rawValue) ?? "")")
@@ -645,7 +648,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
             if self.arrOrderResponse[indexPath.row].dueDate != nil{
                 cell?.payementDueLabel.text = "" + "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
             }else{
-                cell?.payementDueLabel.text = "" + "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
+                cell?.payementDueLabel.text = "\(self.arrOrderResponse[indexPath.row].dueDate ?? "")"
             }
             
             let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (self.arrOrderResponse[indexPath.row].supplierInfo.supplierProfile?.rawValue) ?? "")")
@@ -720,7 +723,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
             if let objPlacedOrderViewVC = menuStoryBoard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController {
                 objPlacedOrderViewVC.orderId = self.arrOrderResponse[indexPath.row].id
-                objPlacedOrderViewVC.supplierId = self.arrOrderResponse[indexPath.row].supplierID
+                objPlacedOrderViewVC.supplierNumber = self.arrOrderResponse[indexPath.row].supplierID
                 self.navigationController?.pushViewController(objPlacedOrderViewVC, animated: true)
             }
             
@@ -728,14 +731,14 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
             if self.selectedIndexPath ==  IndexPath(row: 1, section: 0)  {
                 if  let objPlacedOrderViewVC = menuStoryBoard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController {
                     objPlacedOrderViewVC.allorderApiCalling = false
-                    objPlacedOrderViewVC.supplierId = self.arrOrderResponse[indexPath.row].supplierID
+                    objPlacedOrderViewVC.supplierNumber = self.arrOrderResponse[indexPath.row].supplierID
                     self.navigationController?.pushViewController(objPlacedOrderViewVC, animated: true)
                 }
             } else {
                 if let objPlacedOrderViewVC = menuStoryBoard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController {
                     objPlacedOrderViewVC.orderId = self.arrOrderResponse[indexPath.row].id
                     objPlacedOrderViewVC.allorderApiCalling = true
-                    objPlacedOrderViewVC.supplierId = self.arrOrderResponse[indexPath.row].supplierID
+                    objPlacedOrderViewVC.supplierNumber = self.arrOrderResponse[indexPath.row].supplierID
                     self.navigationController?.pushViewController(objPlacedOrderViewVC, animated: true)
                 }
             }

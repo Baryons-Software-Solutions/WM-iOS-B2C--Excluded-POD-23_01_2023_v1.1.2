@@ -39,7 +39,7 @@ class InvoiceDetailsVCNew: UIViewController, PaymentManagerDelegate {
     self.tabBarController?.tabBar.isHidden = true
     wsInvoicesView()
   }
-    @IBAction func Btnback(_ sender: Any) {
+    @IBAction func BtnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true)
     }

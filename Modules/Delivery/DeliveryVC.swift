@@ -167,7 +167,7 @@ class DeliveryVC: UIViewController {
         //action events
     }
     
-    @IBAction func BtnAddProduct(_ sender: Any) {
+    @IBAction func btnAddproduct(_ sender: Any) {
         let SearchViewController = menuStoryBoard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         SearchViewController.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(SearchViewController, animated: true)
@@ -180,7 +180,7 @@ class DeliveryVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -352,8 +352,6 @@ class DeliveryVC: UIViewController {
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
             if self.selectedIndexPath ==  IndexPath(row: 0, section: 0) {
                 self.arrOrderResponse.removeAll()
-            } else {
-                self.arrOrderResponse.removeAll()
             }
         } else {
             if self.selectedIndexPath ==  IndexPath(row: 1, section: 0)  {
@@ -382,17 +380,17 @@ class DeliveryVC: UIViewController {
         self.filterBGView.isHidden  = false
         self.supplierCollectionView.reloadData()
         let supplierheight = supplierCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 240 ? supplierheight + 10 : supplierheight + 10
+        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 240 ? supplierheight + 15 : supplierheight + 10
         self.supplierCollectionView.layoutIfNeeded()
         self.supplierCollectionView.reloadData()
         self.outletCollectionView.reloadData()
         let outletHeight = outletCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 10 : outletHeight + 10
+        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 15 : outletHeight + 10
         self.outletCollectionView.layoutIfNeeded()
         self.outletCollectionView.reloadData()
         self.statusCollectionView.reloadData()
         let height = statusCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.statusCollectionViewHeightConstriant.constant = height > 240 ? height + 10 : height + 10
+        self.statusCollectionViewHeightConstriant.constant = height > 240 ? height + 15 : height + 10
         self.statusCollectionView.layoutIfNeeded()
         self.statusCollectionView.reloadData()
         self.arrPaymentResponse.removeAll()
@@ -446,10 +444,7 @@ extension DeliveryVC: UITableViewDelegate, UITableViewDataSource{
             options: nil)
         if indexPath.row % 2 == 0{
             cell.backgroundColor = .white
-        } else {
-            cell.backgroundColor = .white
-            
-        }
+        } 
         return cell
     }
     

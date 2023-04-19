@@ -192,9 +192,10 @@ class LoginVC: UIViewController {
                                 USERDEFAULTS.setDataForKey(buyerType , .buyerType)
                                 
                                 if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
-                                    let dashboardvc = mainStoryboard.instantiateViewController(withIdentifier: "TabbarViewController") as? UITabBarController
-                                    dashboardvc?.selectedIndex = 0
-                                    Constants.GlobalConstants.appDelegate.window?.rootViewController = dashboardvc
+                                    if let WelcomeViewController = AuthenticationStoryboard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController {
+                                        WelcomeViewController.modalPresentationStyle = .fullScreen
+                                        self.present(WelcomeViewController, animated: true)
+                                    }
                                 } else {
                                     let dashboardvc = mainStoryboard.instantiateViewController(withIdentifier: "TabbarViewController") as? UITabBarController
                                     dashboardvc?.selectedIndex = 0
@@ -302,13 +303,15 @@ class LoginVC: UIViewController {
                                 USERDEFAULTS.setDataForKey(buyerType , .buyerType)
                                 
                                 if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
-                                    let dashboardvc = mainStoryboard.instantiateViewController(withIdentifier: "TabbarViewController") as? UITabBarController
-                                    dashboardvc?.selectedIndex = 0
-                                    Constants.GlobalConstants.appDelegate.window?.rootViewController = dashboardvc
+                                    if let WelcomeViewController = AuthenticationStoryboard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController {
+                                        WelcomeViewController.modalPresentationStyle = .fullScreen
+                                        self.present(WelcomeViewController, animated: true)
+                                    }
                                 } else {
                                     let dashboardvc = mainStoryboard.instantiateViewController(withIdentifier: "TabbarViewController") as? UITabBarController
                                     dashboardvc?.selectedIndex = 0
                                     Constants.GlobalConstants.appDelegate.window?.rootViewController = dashboardvc
+                                   
                                 }
                             }
                         } else {

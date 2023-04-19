@@ -21,7 +21,6 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
     @IBOutlet weak var lblEmptycart: UILabel!
     @IBOutlet weak var lbladdsome: UILabel!
     @IBOutlet weak var imgcart: UIImageView!
-    @IBOutlet weak var backButton       : UIButton!
     @IBOutlet weak var titleLabel       : UILabel!
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var ordersTableView  : UITableView!
@@ -138,9 +137,7 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
         notificationVC.modalPresentationStyle = .fullScreen
         self.navigationController?.present(notificationVC, animated: true)
     }
-    @IBAction func backbutton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    
     //This method is used for getting the delivery address
     func getDeliveryAddress() -> [String: String] {
         var deliveryAddress: [String: String] = [:]
@@ -638,7 +635,6 @@ extension MyCartViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     @objc func dropdown(_ sender: UIButton){
-        if String(describing: USERDEFAULTS.getDataForKey(.isLogin)) == "false" {
             let indexPath = IndexPath(row: sender.tag, section: 0)
             selectedIndexRow = indexPath.row
             cartID = arrCartProductListResponse[indexPath.row].id
@@ -647,16 +643,7 @@ extension MyCartViewController : UITableViewDataSource, UITableViewDelegate{
             self.tabBarController?.tabBar.backgroundColor = .white
             self.tabBarController?.tabBar.alpha = 1
             self.tabBarController?.tabBar.isUserInteractionEnabled = true
-        }else{
-            let indexPath = IndexPath(row: sender.tag, section: 0)
-            selectedIndexRow = indexPath.row
-            cartID = arrCartProductListResponse[indexPath.row].id
-            VwBlur.isHidden = false
-            vwDelete.isHidden = false
-            self.tabBarController?.tabBar.backgroundColor = .white
-            self.tabBarController?.tabBar.alpha = 1
-            self.tabBarController?.tabBar.isUserInteractionEnabled = true
-        }
+    
     }
     
     @objc func rightArrowNavigation(_ sender: UIButton){

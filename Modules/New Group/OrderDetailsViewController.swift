@@ -92,7 +92,7 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     var changeQuantityTapped          = false
     var totalConsoldatedAmount        = 0.0
     var orderId                       = ""
-    var supplierId                    = ""
+    var supplierNumber                    = ""
     var userType: Int                 = USERDEFAULTS.getDataForKey(.user_type) as? Int ?? 0
     var buyerType: String             = USERDEFAULTS.getDataForKey(.buyerType) as? String ?? ""
     var billingAddress: [String: String] = [:]
@@ -635,7 +635,7 @@ extension OrderDetailsViewController : UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-        return UITableView.automaticDimension
+      
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

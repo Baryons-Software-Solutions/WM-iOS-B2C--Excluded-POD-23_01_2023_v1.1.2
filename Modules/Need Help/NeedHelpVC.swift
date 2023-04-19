@@ -207,7 +207,7 @@ class NeedHelpVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -225,7 +225,7 @@ extension NeedHelpVC : UIPickerViewDelegate,UIPickerViewDataSource{
         if pickerView == pickerCategory{
             return arrCategory.count
         } else {
-            return arrCategory.count
+            return 1
         }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

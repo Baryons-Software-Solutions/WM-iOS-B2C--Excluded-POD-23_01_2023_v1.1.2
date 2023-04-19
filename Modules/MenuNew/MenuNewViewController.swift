@@ -132,6 +132,14 @@ class MenuNewViewController: UIViewController {
         self.tabBarController?.tabBar.alpha = 1
         self.tabBarController?.tabBar.isUserInteractionEnabled = true
     }
+    @IBAction func btnNo(_ sender: Any) {
+        bgview.isHidden = true
+        VwDelete.isHidden = true
+        self.tabBarController?.tabBar.backgroundColor = UIColor(hexFromString: "FFFFFF")
+        self.tabBarController?.tabBar.alpha = 1
+        self.tabBarController?.tabBar.isUserInteractionEnabled = true
+    }
+    
     @IBAction func btnSignIn(_ sender: Any) {
         let dashboardVC = AuthenticationStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.navigationController?.pushViewController(dashboardVC, animated: true)
@@ -231,13 +239,6 @@ class MenuNewViewController: UIViewController {
         self.showCustomAlert(message:"User profile is inactivated successfully")
         self.wsdeleteMyAccount()
         
-    }
-    @IBAction func BtnCancel(_ sender: Any) {
-        bgview.isHidden = true
-        VwDelete.isHidden = true
-        self.tabBarController?.tabBar.backgroundColor = UIColor(hexFromString: "FFFFFF")
-        self.tabBarController?.tabBar.alpha = 1
-        self.tabBarController?.tabBar.isUserInteractionEnabled = true
     }
 }
 // this method is used for create the table cell

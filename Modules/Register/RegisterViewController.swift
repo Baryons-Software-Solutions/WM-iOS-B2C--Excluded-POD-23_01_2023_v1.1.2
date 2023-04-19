@@ -60,7 +60,6 @@ class RegisterViewController: UIViewController,CountryPickerViewDelegate,Country
     var arrParams = [ParameterResponse]()
     var arrCountry = [ParameterResponse]()
     var arrCity = [ParameterResponse]()
-    var arrcity = ["Dubai", "Abu Dhabi", "Ajman", "Umm Al Quwain", "Sharjah", "Ras Al Khaimah", "Fujairah"] //commented for does not depend on country
     var countryCode = "+1"
     var pickerCountry = UIPickerView()
     var pickerCity = UIPickerView()
@@ -211,7 +210,7 @@ class RegisterViewController: UIViewController,CountryPickerViewDelegate,Country
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -221,7 +220,7 @@ class RegisterViewController: UIViewController,CountryPickerViewDelegate,Country
     @IBAction func submitAction(_ sender: Any) {
         validationLogin()
     }
-    @IBAction func backbutton(_ sender: Any) {
+    @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true)
         self.navigationController?.popViewController(animated: true)
     }
@@ -244,7 +243,8 @@ extension RegisterViewController : UIPickerViewDelegate,UIPickerViewDataSource{
         if pickerView == pickerCountry {
             return arrCountry.count
         } else if pickerView == pickerCity {
-            return arrcity.count // //commented for does not depend on country
+           // return arrcity.count // //commented for does not depend on country
+            return arrCity.count
         } else{
             return 1
         }
@@ -255,7 +255,8 @@ extension RegisterViewController : UIPickerViewDelegate,UIPickerViewDataSource{
         if pickerView == pickerCountry {
             return arrCountry[row].value
         } else if pickerView == pickerCity {
-            return arrcity[row]/*.value*/ //commented for does not depend on country
+          //  return arrcity[row]/*.value*/ //commented for does not depend on country
+            return arrCity[row].value
         }  else{
             return ""
         }
@@ -266,9 +267,11 @@ extension RegisterViewController : UIPickerViewDelegate,UIPickerViewDataSource{
             countryTextField.text = arrCountry[row].value
             selectCountryPicker()
         } else if pickerView == pickerCity {
-            let cityName = arrcity[row]/*.value*/ //commented for does not depend on country
+         //   let cityName = arrcity[row]/*.value*/ //commented for does not depend on country
+            let cityName = arrCity[row].value
             if !cityName.isEmpty {
-                cityTextField.text = arrcity[row]/*.value*/ //commented for does not depend on country
+              //  cityTextField.text = arrcity[row]/*.value*/ //commented for does not depend on country
+                cityTextField.text = arrCity[row].value
             }
         }
     }

@@ -37,7 +37,7 @@ class WelcomeViewController: UIViewController {
         let nib = UINib.init(nibName: "WelcomeCollectionViewCells", bundle: Bundle(for: WelcomeCollectionViewCells.self))
         onBoardingCollectionView.register(nib, forCellWithReuseIdentifier: "WelcomeCollectionViewCells")
     }
-    @IBAction func getStartedbutton(_ sender: Any) {
+    @IBAction func getStartedButton(_ sender: Any) {
         UserDefaults.standard.setValue(true, forKey: "is_Onboard_Completed")
         USERDEFAULTS.setDataForKey("false", .isLogin)
         USERDEFAULTS.setDataForKey("Guest", .user_first_name)

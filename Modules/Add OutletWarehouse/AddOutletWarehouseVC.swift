@@ -87,7 +87,6 @@ class AddOutletWarehouseVC: UIViewController {
     var arrParams = [ParameterResponse]()
     var arrCountry = [ParameterResponse]()
     var arrCity = [ParameterResponse]()
-    var arrcity = ["Dubai", "Abu Dhabi", "Ajman", "Umm Al Quwain", "Sharjah", "Ras Al Khaimah", "Fujairah"]
     var arrArea = [ParameterResponse]()
     var titleName = "Add Address"
     var countryCode = ""
@@ -255,7 +254,9 @@ class AddOutletWarehouseVC: UIViewController {
     @objc func donePickerCity() {
         if arrCity.count > 0{
             if txtCity.text == "" || arrCity.count == 1{
-                txtCity.text = arrcity[0]/*.value*/
+                txtCity.text = arrCity[0].value
+                
+                
             }
             self.arrArea.removeAll()
             for i in self.arrParams{
@@ -344,7 +345,7 @@ class AddOutletWarehouseVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -679,7 +680,6 @@ class AddOutletWarehouseVC: UIViewController {
         paramDic [Constants.WebServiceParameter.paramOutletName] = txtName.text as AnyObject
         paramDic [Constants.WebServiceParameter.paramEmail] = txtEmail.text as AnyObject
         paramDic [Constants.WebServiceParameter.paramMobileCountryCode] = txtCountryCode.text as AnyObject
-        paramDic [Constants.WebServiceParameter.paramMobileNumber] = txtMobileNumber.text as AnyObject
         paramDic [Constants.WebServiceParameter.paramAddress] = txtAddress.text as AnyObject
         paramDic [Constants.WebServiceParameter.paramCountry] = txtCountry.text as AnyObject
         paramDic [Constants.WebServiceParameter.paramCity] = txtCity.text as AnyObject
@@ -940,7 +940,9 @@ extension AddOutletWarehouseVC : UIPickerViewDelegate,UIPickerViewDataSource{
         } else  if pickerView == pickerCountry || pickerView == pickerTimeZone || pickerView == pickerBillingCountry{
             return arrCountry[row].value
         } else  if pickerView == pickerCity || pickerView == pickerBillingCity{
-            return arrcity[row]/*.value*/
+            return arrCity[row].value
+            
+            
         } else  if pickerView == pickerArea || pickerView == pickerBillingArea{
             return arrArea[row].value
         } else  if pickerView == pickerCountryCode{
@@ -958,7 +960,7 @@ extension AddOutletWarehouseVC : UIPickerViewDelegate,UIPickerViewDataSource{
         } else  if pickerView == pickerCountry{
             txtCountry.text = arrCountry[row].value
         } else  if pickerView == pickerCity{
-            txtCity.text = arrcity[row]/*.value*/
+            txtCity.text = arrCity[row].value
         } else  if pickerView == pickerArea{
             txtArea.text = arrArea[row].value
         } else  if pickerView == pickerCountryCode{
@@ -966,7 +968,7 @@ extension AddOutletWarehouseVC : UIPickerViewDelegate,UIPickerViewDataSource{
         } else  if pickerView == pickerBillingCountry{
             txtBillingCountry.text = arrCountry[row].value
         } else  if pickerView == pickerBillingCity{
-            txtBillingCity.text = arrcity[row]/*.value*/
+            txtBillingCity.text = arrCity[row].value
         } else  if pickerView == pickerBillingArea{
             txtBillingArea.text = arrArea[row].value
         }

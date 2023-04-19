@@ -228,7 +228,7 @@ class OutletsListVC: UIViewController {
             print ("Oops something happened buddy")
         }
     }
-    @IBAction func btnDelete(_ sender: Any) {
+    @IBAction func BtnDelete(_ sender: Any) {
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
             self.arrTempID.add(self.arrWarehouseList[(sender as AnyObject).tag].id)
         } else {
@@ -239,7 +239,7 @@ class OutletsListVC: UIViewController {
         vwDelete.isHidden   = true
     }
     
-    @IBAction func btnclose(_ sender: Any) {
+    @IBAction func Btnclose(_ sender: Any) {
         filterBG.isHidden = true
         vwDelete.isHidden   = true
     }
@@ -365,8 +365,6 @@ extension OutletsListVC: UITableViewDelegate, UITableViewDataSource {
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WarehouseOutletListTblCell", for: indexPath as IndexPath) as? WarehouseOutletListTblCell
                 if self.arrOutletList[indexPath.row].outletLogo != nil && self.arrOutletList[indexPath.row].outletLogo != "" {
-                } else {
-                    
                 }
                 cell?.lblName.text = self.arrOutletList[indexPath.row].outletName
                 cell?.lblAdress.text = "\(self.arrOutletList[indexPath.row].address),\(self.arrOutletList[indexPath.row].area),\(self.arrOutletList[indexPath.row].city),\(self.arrOutletList[indexPath.row].country)"

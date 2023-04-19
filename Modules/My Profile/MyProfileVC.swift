@@ -84,9 +84,6 @@ class MyProfileVC: UIViewController {
         }
         // Do any additional setup after loading the view.*/
     }
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        takeAndChoosePhoto()
-    }
     @objc func handletap(_ sender: UITapGestureRecognizer? = nil){
         takeAndChoosePhoto()
     }
@@ -216,7 +213,7 @@ class MyProfileVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -240,14 +237,14 @@ extension MyProfileVC : UIPickerViewDelegate,UIPickerViewDataSource{
         if pickerView == pickerCountryCode{
             return arrContryCode.count
         } else {
-            return arrContryCode.count
+            return 1
         }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == pickerCountryCode{
             return "\(arrContryCode[row]["name"]!)(\(arrContryCode[row]["dial_code"]!))"
         } else {
-            return "\(arrContryCode[row]["name"]!)(\(arrContryCode[row]["dial_code"]!))"
+            return "\(arrContryCode[row]["name"]!)"
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){

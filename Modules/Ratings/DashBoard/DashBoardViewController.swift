@@ -1,7 +1,5 @@
 //
 //  DashBoardViewController.swift
-//
-//
 //  Created by chittiraju on 20/06/22.
 //  Updated by Avinash on 11/03/23.
 //
@@ -272,9 +270,10 @@ extension DashBoardViewController : UIPickerViewDelegate,UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
- (\(self.arrOutletList[row].area ?? ""))"
-        return "\(self.arrOutletList[row].outletName) (\(self.arrOutletList[row].area))"
-    }
+ "\(self.arrOutletList[row].area ?? "")"
+        return "\(self.arrOutletList[row].outletName) \(self.arrOutletList[row].area)"
+  }
+    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.txtLocation.text = "\(self.arrOutletList[row].outletName ?? "") (\(self.arrOutletList[row].area ?? ""))"

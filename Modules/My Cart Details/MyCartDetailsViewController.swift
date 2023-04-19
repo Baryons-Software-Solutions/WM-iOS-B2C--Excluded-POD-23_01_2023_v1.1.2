@@ -984,7 +984,7 @@ extension MyCartDetailsViewController{
                                 self.arrCartProductListResponse = self.arrCartListResponse.first?.cart ?? [Cart]()
                                 let singleDict = self.arrCartProductListResponse.firstIndex { single in
                                     return single.supplierID == self.supplierID
-                                    print(self.supplierID)
+                                  
                                 }
                                 self.seletectedCartIndex = singleDict ?? 0
                                 self.arrProductsInfo = self.arrCartProductListResponse[singleDict ?? 0].productsInfo ?? [ProductsInfo]()
@@ -1127,7 +1127,6 @@ extension MyCartDetailsViewController{
                     do {
                         let dicResponseData = try decoder.decode(GenralResponseModel.self, from: responseData as! Data)
                         self.showCustomAlert(message: dicResponseData.message)
-                        self.deliverydateTextField.text = self.deliverydateTextField.text
                         self.bckView.isHidden = true
                         self.vwNotes.isHidden = true
                         self.wsCartGet()

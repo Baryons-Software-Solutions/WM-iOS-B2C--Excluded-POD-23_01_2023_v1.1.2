@@ -283,7 +283,7 @@ class InvoicesVC: UIViewController {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 1, alpha: 1)
         toolBar.sizeToFit()
         let doneBtnAction = UIBarButtonItem(title: "Done", style: .plain, target: self, action: btnDoneSelector)
         toolBar.setItems([doneBtnAction], animated: false)
@@ -388,10 +388,7 @@ class InvoicesVC: UIViewController {
                             }
                             if self.arrTempCount.count > 0{
                                 self.stackSelect.isHidden = true
-                            } else {
-                                self.stackSelect.isHidden = true
                             }
-                            
                             for i in self.arrDraftOrderResponse{
                                 // self.arrSuppliers.append(i.supplierInfo)
                                 self.arrSuppliers.append(["Title": "All"  , "id" : "" ])
@@ -909,9 +906,9 @@ class InvoicesVC: UIViewController {
             if self.selectedIndexPath ==  IndexPath(row: 0, section: 0) {
                 self.arrOrderResponse.removeAll()
                 self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: searchedText)
-            } else {
+            } else{
                 self.arrOrderResponse.removeAll()
-                self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: searchedText)
+                self.wsSupplierOrders(status: statusId, buyerId: supplierId, OutletId: outletId, search: "")
             }
         } else {
             if self.selectedIndexPath ==  IndexPath(row: 1, section: 0)  {
@@ -1102,19 +1099,19 @@ class InvoicesVC: UIViewController {
         
         self.supplierCollectionView.reloadData()
         let supplierheight = supplierCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 240 ? supplierheight + 10 : supplierheight + 10
+        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 240 ? supplierheight + 15 : supplierheight + 10
         self.supplierCollectionView.layoutIfNeeded()
         self.supplierCollectionView.reloadData()
         
         self.outletCollectionView.reloadData()
         let outletHeight = outletCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 10 : outletHeight + 10
+        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 15 : outletHeight + 10
         self.outletCollectionView.layoutIfNeeded()
         self.outletCollectionView.reloadData()
         
         self.statusCollectionView.reloadData()
         let height = statusCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.statusCollectionViewHeightConstraint.constant = height > 240 ? height + 10 : height + 10
+        self.statusCollectionViewHeightConstraint.constant = height > 240 ? height + 15 : height + 10
         self.statusCollectionView.layoutIfNeeded()
         self.statusCollectionView.reloadData()
         
@@ -1164,7 +1161,7 @@ class InvoicesVC: UIViewController {
             wsUpdateStatusInvoice()
         }
     }
-    @IBAction func SupplierDropDown(_ sender: Any) {
+    @IBAction func supplierDropDown(_ sender: Any) {
         if supplierDropDown.isSelected{
             //            ios-arrow-down
             supplierDropDown.setImage(UIImage(named: "menuDownArrow"), for: .normal)
@@ -1432,8 +1429,6 @@ extension InvoicesVC: UITableViewDelegate, UITableViewDataSource{
             }
             if indexPath.row % 2 == 0{
                 cell?.backgroundColor = .white
-            } else {
-                cell?.backgroundColor = .white
             }
             return cell ?? UITableViewCell()
         } else {
@@ -1446,9 +1441,6 @@ extension InvoicesVC: UITableViewDelegate, UITableViewDataSource{
 
             if indexPath.section % 2 == 0{
                 cell?.vwBg.backgroundColor = .white
-            } else {
-                cell?.vwBg.backgroundColor = .white
-
             }
             return cell ?? PaymentDetailTblCell()
         }
@@ -1571,11 +1563,7 @@ extension InvoicesVC: ExpyTableViewDataSource {
         
         if section % 2 == 0{
             objPaymentTblCell?.vwBg.backgroundColor = .white
-        } else {
-            objPaymentTblCell?.vwBg.backgroundColor = .white
-            
         }
-   
         return objPaymentTblCell ?? UITableViewCell()
     }
     

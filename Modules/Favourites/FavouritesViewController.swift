@@ -208,7 +208,7 @@ class FavouritesViewController: UIViewController {
         filterBGView.isHidden = true
         self.wsRemoveFavSupplier(supplierID: arrSupplierList[deletedIndex ?? 0].id )
     }
-    @IBAction func BtnAddFav(_ sender: Any) {
+    @IBAction func btnAddFav(_ sender: Any) {
         let SearchViewController = menuStoryBoard.instantiateViewController(withIdentifier: "SupplierViewController") as! SupplierViewController
         SearchViewController.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(SearchViewController, animated: true)

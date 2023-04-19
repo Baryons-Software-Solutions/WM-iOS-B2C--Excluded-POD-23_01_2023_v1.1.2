@@ -397,7 +397,7 @@ extension ProductDetailsVC: UICollectionViewDelegate,UICollectionViewDataSource,
                     self.addQuantityView.isHidden = true
                 }else{
                     self.addMinusStackView.isHidden = false
-                    self.addQuantityView.isHidden = true
+                    self.addQuantityView.isHidden = false
                 }
             }else{
                 cell.contentsView.borderColor = .clear
@@ -664,23 +664,11 @@ extension ProductDetailsVC {
                                 dateFormatter.dateFormat = "dd/MM/yyyy"
                                 let dateString = dateFormatter.string(from: StringDate ?? Date())
                                 if self.arrCartProductListResponse[singleDict ?? 0].notes?.rawValue == nil {
-                                    
-                                }else{
-                                    
                                 }
                                 self.cartID =  self.arrCartProductListResponse[singleDict ?? 0].id
-                                
-                                
-                                
                                 if let profileId = self.arrCartProductListResponse[0].supplierInfo.supplierProfileID?.rawValue, profileId != ""  {
                                     //                         self.payTabsPaymentProfileID = profileId
-                                } else {
-                                    //                        self.payTabsPaymentProfileID = ""
                                 }
-                                
-                                
-                            } else {
-                                
                             }
                             //                    self.btnPayNowToggle()
                         } else {

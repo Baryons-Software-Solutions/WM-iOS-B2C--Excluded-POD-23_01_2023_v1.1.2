@@ -174,7 +174,7 @@ class SupplierDetailsViewController: UIViewController, getCartCount {
         bgView.isHidden     = false
         self.categoryCollectionView.reloadData()
         let outletHeight = categoryCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.categoryHeightConstraint.constant = outletHeight > 240 ? outletHeight + 10 : outletHeight + 10
+        self.categoryHeightConstraint.constant = outletHeight > 240 ? outletHeight + 15 : outletHeight + 10
         self.categoryCollectionView.layoutIfNeeded()
         self.categoryCollectionView.reloadData()
     }
@@ -745,7 +745,6 @@ extension SupplierDetailsViewController {
         guard case ConnectionCheck.isConnectedToNetwork() = true else {
             self.suppliersCollectionView.isUserInteractionEnabled = true
             self.showCustomAlert(message: Constants.AlertMessage.NetworkConnection, isSuccessResponse: false)
-            //  showToast(message: Constants.AlertMessage.NetworkConnection)
             return
         }
         let session = URLSession.shared
