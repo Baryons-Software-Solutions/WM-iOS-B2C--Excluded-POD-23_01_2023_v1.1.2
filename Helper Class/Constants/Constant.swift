@@ -594,7 +594,6 @@ struct Constants {
         static let noResult = "No Result Found"
         static let inProgress = "In Progress"
         static let NetworkConnection  = "You are not connected to internet. Please connect and try again"
-        static let networkConnection = "You are not connected to internet. Please connect and try again"
         static let msgSlowNetworkConnection = "We are unable to retrieve the data at this time, please try again"
         static let contactUs = "Your query has been submitted successfully"
         

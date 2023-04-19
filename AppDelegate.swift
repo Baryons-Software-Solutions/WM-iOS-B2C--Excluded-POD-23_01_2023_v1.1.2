@@ -29,11 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.setupIQKeyBoard()
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-            if error != nil || user == nil {
-                // Show the app's signed-out state.
-            } else {
-                // Show the app's signed-in state.
-            }
+
         }
         
         //        ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)

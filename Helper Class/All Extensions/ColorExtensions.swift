@@ -18,16 +18,16 @@ extension UIColor {
         return UIColor(red: 142.0 / 255.0, green: 111.0 / 255.0, blue: 77.0 / 255.0, alpha: 1.0)
     }
     @nonobjc class var salmonPink: UIColor {
-        return UIColor(red: 255.0 / 255.0, green: 119.0 / 255.0, blue: 134.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 1.0, green: 119.0 / 255.0, blue: 134.0 / 255.0, alpha: 1.0)
     }
     @nonobjc class var salmon: UIColor {
-        return UIColor(red: 255.0 / 255.0, green: 139.0 / 255.0, blue: 121.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 1.0, green: 139.0 / 255.0, blue: 121.0 / 255.0, alpha: 1.0)
     }
     @nonobjc class var salmonPinkTwo: UIColor {
         return UIColor(red: 252.0 / 255.0, green: 121.0 / 255.0, blue: 128.0 / 255.0, alpha: 1.0)
     }
     @nonobjc class var carnation: UIColor {
-        return UIColor(red: 255.0 / 255.0, green: 110.0 / 255.0, blue: 139.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 1.0, green: 110.0 / 255.0, blue: 139.0 / 255.0, alpha: 1.0)
     }
     @nonobjc class var rosa: UIColor {
         return UIColor(red: 254.0 / 255.0, green: 136.0 / 255.0, blue: 158.0 / 255.0, alpha: 1.0)
@@ -54,7 +54,7 @@ extension UIColor {
     }
     
     @nonobjc class var lightPink: UIColor {
-        return UIColor(red: 255.0 / 255.0, green: 110.0 / 255.0, blue: 139.0 / 255.0, alpha: 1.0)
+        return UIColor(red: 1.0, green: 110.0 / 255.0, blue: 139.0 / 255.0, alpha: 1.0)
     }
     
     @nonobjc class var veryLightPink: UIColor {

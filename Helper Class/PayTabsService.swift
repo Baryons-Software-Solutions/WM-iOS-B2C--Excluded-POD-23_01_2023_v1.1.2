@@ -1,8 +1,6 @@
 //
 //  PayTabsService.swift
 //  Watermelon-iOS_GIT
-//
-//  Created by Nevin Paul on 19/10/21.
 //  Updated by Avinash on 11/03/23.
 //  Copyright © 2021 Mac. All rights reserved.
 //

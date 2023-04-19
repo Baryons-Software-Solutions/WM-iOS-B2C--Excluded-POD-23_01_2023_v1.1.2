@@ -32,11 +32,9 @@ extension UICollectionView {
                 if #available(iOS 10.0, *) {
                     refreshControlLower = UIRefreshControl()
                     addSubview(self.refreshControlLower!)
-                } else {
-                    refreshControlLower = UIRefreshControl()
-                    addSubview(self.refreshControlLower!)
+                    refreshControlLower?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
                 }
-                refreshControlLower?.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+                
             }
         }
     }
