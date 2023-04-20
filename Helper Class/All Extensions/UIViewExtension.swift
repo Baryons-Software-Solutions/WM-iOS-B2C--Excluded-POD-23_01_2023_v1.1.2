@@ -218,6 +218,7 @@ extension UIView {
     
     func dismissWithAnimation(animation: PopUpAnimation) {
         self.dismissPopUpViewWithView(popUpView: self, animation: animation, afterDelay: 0.0) {
+            print("animation")
         }
     }
     

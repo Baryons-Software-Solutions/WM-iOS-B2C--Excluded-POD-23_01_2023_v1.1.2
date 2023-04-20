@@ -76,13 +76,13 @@ class FilterViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func clearAllAction(_ sender: Any) {
-        
-    }
-    
-    @IBAction func showResultsAction(_ sender: Any) {
-        
-    }
+//    @IBAction func clearAllAction(_ sender: Any) {
+//        
+//    }
+//
+//    @IBAction func showResultsAction(_ sender: Any) {
+//
+//    }
     
 }
 

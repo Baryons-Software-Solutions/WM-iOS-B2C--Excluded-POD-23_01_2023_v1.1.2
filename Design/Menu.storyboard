@@ -5611,6 +5611,11 @@
             <point key="canvasLocation" x="7028.985507246377" y="2355.1339285714284"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="W9D-pw-HLM">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="BlueFilter" width="15" height="13"/>
         <image name="Cross" width="31.5" height="31.5"/>
@@ -8133,7 +8138,7 @@ AAAAAAAAAGgAAAAAAAAAAAAAAAAAAFTwA
 </mutableData>
         </image>
         <image name="cart-1" width="211" height="180"/>
-        <image name="down-arrow" width="19" height="19"/>
+        <image name="down-arrow" width="29" height="29"/>
         <image name="ic_close" width="15" height="15"/>
         <image name="ic_download" width="25" height="25"/>
         <image name="icons8-supplier" width="188" height="192"/>

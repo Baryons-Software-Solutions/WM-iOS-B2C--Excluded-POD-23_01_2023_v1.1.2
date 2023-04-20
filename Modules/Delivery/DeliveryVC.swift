@@ -82,6 +82,7 @@ class DeliveryVC: UIViewController {
     var outletIndexPath                     : IndexPath?
     var statusIndexPath                     : IndexPath?
     var arrPaymentResponse                  = [Payment]()
+    var NoFilter = "No Filters Applied"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,8 +105,8 @@ class DeliveryVC: UIViewController {
     func UIElementsSetUp(){
         self.filterBGView.backgroundColor = .black
         self.filterBGView.alpha           = 0.6
-        self.filterAppliedLabel.text      = "No Filters Applied"
-        self.imgDelievry.isHidden = true
+        self.filterAppliedLabel.text      = NoFilter
+        self.imgDelievry.isHidden  =  true
         self.SearchView.isHidden = false
         self.lblNodelievry.isHidden = true
         self.lblAddSome.isHidden = true
@@ -659,8 +660,8 @@ extension DeliveryVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     func numberofFiltersApplies(){
         if supplierIndexPath == nil && outletIndexPath == nil && statusIndexPath == nil {
-            print("No Filters Applied")
-            self.filterAppliedLabel.text = "No Filters Applied"
+            print(NoFilter)
+            self.filterAppliedLabel.text = NoFilter
         }else if  supplierIndexPath != nil && outletIndexPath != nil && statusIndexPath != nil{
             self.filterAppliedLabel.text = "3 filters Applied"
         }else if supplierIndexPath != nil && outletIndexPath != nil {

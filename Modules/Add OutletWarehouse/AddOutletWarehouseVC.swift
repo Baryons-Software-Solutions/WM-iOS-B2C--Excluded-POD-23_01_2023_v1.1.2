@@ -91,12 +91,13 @@ class AddOutletWarehouseVC: UIViewController {
     var titleName = "Add Address"
     var countryCode = ""
     var countryName = "United Arab Emirates"
+    var countryCodeAndName = "United Arab Emirates(+971)"
     var arrDetail = [OutletListResponse]()
     var arrDetailWarehouse = [WarehouseListResponse]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtCountryCode.text = "United Arab Emirates(+971)"
+        self.txtCountryCode.text = countryCodeAndName
         successview.cornerRadius = 8
         btncontinue.cornerRadius = 8
         bgview.isHidden = true
@@ -113,10 +114,10 @@ class AddOutletWarehouseVC: UIViewController {
                 self.txtName.text = self.arrDetailWarehouse[0].warehouseName
                 self.txtEmail.text = self.arrDetailWarehouse[0].email
                 self.txtAddress.text = self.arrDetailWarehouse[0].address
-                self.txtCountry.text = "United Arab Emirates"//self.arrDetailWarehouse[0].country
+                self.txtCountry.text = countryName//self.arrDetailWarehouse[0].country
                 self.txtCity.text = "Dubai"//self.arrDetailWarehouse[0].city
                 self.txtArea.text = self.arrDetailWarehouse[0].area
-                self.txtCountryCode.text = "United Arab Emirates(+971)"//self.arrDetailWarehouse[0].countryCode
+                self.txtCountryCode.text = countryCodeAndName//self.arrDetailWarehouse[0].countryCode
                 self.txtMobileNumber.text = self.arrDetailWarehouse[0].mobileNumber
                 self.txtStatus.text = self.arrDetailWarehouse[0].statusName
             }
@@ -126,10 +127,10 @@ class AddOutletWarehouseVC: UIViewController {
                 self.txtName.text = self.arrDetail[0].outletName
                 self.txtEmail.text = self.arrDetail[0].email
                 self.txtAddress.text = self.arrDetail[0].address
-                self.txtCountry.text = "United Arab Emirates"//self.arrDetail[0].country
+                self.txtCountry.text = countryName//self.arrDetail[0].country
                 self.txtCity.text = "Dubai"//self.arrDetail[0].city
                 self.txtArea.text = self.arrDetail[0].area
-                self.txtCountryCode.text = "United Arab Emirates(+971)"//self.arrDetail[0].mobileCountryCode
+                self.txtCountryCode.text = countryCodeAndName//self.arrDetail[0].mobileCountryCode
                 self.txtMobileNumber.text = self.arrDetail[0].mobileNumber
                 if self.arrDetail[0].billingAddress != "" {
                     self.stackBillingAddress.isHidden = false
@@ -232,7 +233,7 @@ class AddOutletWarehouseVC: UIViewController {
     
     
     @objc func donePickerCountry() {
-        self.txtCountry.text = "United Arab Emirates"
+        self.txtCountry.text = countryName
         if arrCountry.count > 0{
             if txtCountry.text == "" || arrCountry.count == 1{
                 txtCountry.text = arrCountry[0].value

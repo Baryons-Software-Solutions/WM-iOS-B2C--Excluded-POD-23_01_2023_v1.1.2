@@ -60,6 +60,7 @@ class FavouritesViewController: UIViewController {
     var selectedFilterIndexPath         :IndexPath?
     var clearAllOrShowButtonTapped      = false
     var deletedIndex                    : Int?
+    var lightBlue    = hexStringToUIColor(hex: "#EDF5FF")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -386,8 +387,8 @@ extension FavouritesViewController : UICollectionViewDelegate, UICollectionViewD
             cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
         }else{
             cell.bgView.borderWidth = 1
-            cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor = lightBlue
+            cell.bgView.borderColor     = lightBlue
         }
         return cell
     }
@@ -408,8 +409,8 @@ extension FavouritesViewController : UICollectionViewDelegate, UICollectionViewD
         } else  {
             selectedFilterIndexPath = nil
             cell.bgView.borderWidth = 1
-            cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor = lightBlue
+            cell.bgView.borderColor     = lightBlue
         }
         DispatchQueue.main.async {
             self.filterCollectionView.reloadData()
