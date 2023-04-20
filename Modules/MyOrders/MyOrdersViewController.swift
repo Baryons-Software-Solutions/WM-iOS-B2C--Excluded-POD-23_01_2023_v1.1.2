@@ -343,17 +343,17 @@ class MyOrdersViewController: UIViewController {
         self.filterBGView.isHidden  = false
         self.supplierCollectionView.reloadData()
         let supplierheight = supplierCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 239 ? supplierheight + 10 : supplierheight + 10
+        self.supplierCollectionViewHeightConstraint.constant = supplierheight > 239 ? supplierheight + 15 : supplierheight + 10
         self.supplierCollectionView.layoutIfNeeded()
         self.supplierCollectionView.reloadData()
         self.outletCollectionView.reloadData()
         let outletHeight = outletCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 10 : outletHeight + 10
+        self.outletCollectionViewHeightConstraint.constant = outletHeight > 240 ? outletHeight + 15 : outletHeight + 10
         self.outletCollectionView.layoutIfNeeded()
         self.outletCollectionView.reloadData()
         self.statusCollectionView.reloadData()
         let height = statusCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.statusCollectionViewHeightConstriant.constant = height > 241 ? height + 10 : height + 10
+        self.statusCollectionViewHeightConstriant.constant = height > 241 ? height + 15 : height + 10
         self.statusCollectionView.layoutIfNeeded()
         self.statusCollectionView.reloadData()
     }

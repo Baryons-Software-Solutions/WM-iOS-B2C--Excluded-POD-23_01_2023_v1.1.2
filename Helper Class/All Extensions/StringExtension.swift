@@ -208,35 +208,35 @@ extension String {
         }
     }
     
-    func isStrongPassword() -> Bool {
-        var lowerCaseLetter: Bool = false
-        var upperCaseLetter: Bool = false
-        var digit: Bool = false
-        var specialCharacter: Bool = false
-        
-        if self.count >= 8 {
-            for char in self.unicodeScalars {
-                if !lowerCaseLetter {
-                    lowerCaseLetter = CharacterSet.lowercaseLetters.contains(char)
-                }
-                if !upperCaseLetter {
-                    upperCaseLetter = CharacterSet.uppercaseLetters.contains(char)
-                }
-                if !digit {
-                    digit = CharacterSet.decimalDigits.contains(char)
-                }
-                if !specialCharacter {
-                    specialCharacter = CharacterSet.punctuationCharacters.contains(char)
-                }
-            }
-            if specialCharacter || (digit && lowerCaseLetter && upperCaseLetter) {
-                return true
-            } else {
-                return false
-            }
-        }
-        return false
-    }
+//    func isStrongPassword() -> Bool {
+//        var lowerCaseLetter: Bool = false
+//        var upperCaseLetter: Bool = false
+//        var digit: Bool = false
+//        var specialCharacter: Bool = false
+//
+//        if self.count >= 8 {
+//            for char in self.unicodeScalars {
+//                if !lowerCaseLetter {
+//                    lowerCaseLetter = CharacterSet.lowercaseLetters.contains(char)
+//                }
+//               if !upperCaseLetter {
+//                    upperCaseLetter = CharacterSet.uppercaseLetters.contains(char)
+//                }
+//              if !digit {
+//                    digit = CharacterSet.decimalDigits.contains(char)
+//                }
+//              if !specialCharacter {
+//                    specialCharacter = CharacterSet.punctuationCharacters.contains(char)
+//                }
+//            }
+//            if specialCharacter || (digit && lowerCaseLetter && upperCaseLetter) {
+//                return true
+//            } else {
+//                return false
+//            }
+//        }
+//        return false
+//    }
     
     func date(format: String, timeZone: TimeZone = .current) -> Date? {
         let dateFormatter = DateFormatter()

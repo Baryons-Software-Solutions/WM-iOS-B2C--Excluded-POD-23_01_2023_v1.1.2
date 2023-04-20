@@ -50,9 +50,9 @@ struct Validation{
     }
     // This method is used for password validation
     func isPasswordValidate(value: String) -> Bool {
-        
-        let PWD_REGEX = "^[A-Za-z]+[a-zA-Z0-9'_.-@#]*${5,}"
-        let pwd = NSPredicate(format: "SELF MATCHES %@", PWD_REGEX)
+
+        let pwd_REGEX = "^[A-Za-z]+[a-zA-Z0-9'_.-@#]*${5,}"
+        let pwd = NSPredicate(format: "SELF MATCHES %@", pwd_REGEX)
         let result =  pwd.evaluate(with: value)
         return result
     }

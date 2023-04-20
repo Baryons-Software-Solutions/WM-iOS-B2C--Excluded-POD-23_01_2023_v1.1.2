@@ -208,18 +208,22 @@ class LifeCycleView: UIView {
         
         if newWindow == nil {
             // UIView disappear
-            self.viewWillDisAppear()
+        //    self.viewWillDisAppear()
         } else {
             // UIView appear
-            self.viewWillAppear()
+       //     self.viewWillAppear()
         }
     }
     
-    func viewWillAppear() {
-    }
-    
-    func viewWillDisAppear() {
-    }
+//    func viewWillAppear() {
+//      //  updateColors()
+//        // UIView disappear
+//    }
+//
+//    func viewWillDisAppear() {
+//       // updateColors()
+//        // UIView disappear
+//    }
 }
 
 public enum PanDirection: Int {

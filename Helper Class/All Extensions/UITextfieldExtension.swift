@@ -317,13 +317,13 @@ extension UITextField {
                 if !lowerCaseLetter {
                     lowerCaseLetter = CharacterSet.lowercaseLetters.contains(char)
                 }
-                if !upperCaseLetter {
+                else if !upperCaseLetter {
                     upperCaseLetter = CharacterSet.uppercaseLetters.contains(char)
                 }
-                if !digit {
+                else if !digit {
                     digit = CharacterSet.decimalDigits.contains(char)
                 }
-                if !specialCharacter {
+                else if !specialCharacter {
                     specialCharacter = CharacterSet.punctuationCharacters.contains(char)
                 }
             }

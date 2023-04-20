@@ -29,10 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.setupIQKeyBoard()
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-
+           
+            print(error)
         }
         
-        //        ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)
+        // ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions)
         
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier :"SplashViewController") as! SplashViewController
@@ -50,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
-                completionHandler: {_, _ in })
+                completionHandler: {_,/* // For iOS 10 data message (sent via FCM*/ _ in })
             // For iOS 10 data message (sent via FCM
         } else {
             let settings: UIUserNotificationSettings =

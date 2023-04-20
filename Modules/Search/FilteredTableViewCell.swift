@@ -37,7 +37,7 @@ class FilteredTableViewCell: UITableViewCell {
         self.topic = arr
         self.productCollectionView.reloadData()
         let height = productCollectionView.collectionViewLayout.collectionViewContentSize.height
-        self.collectionViewHeight.constant = height > 240 ? height + 10 : height + 10
+        self.collectionViewHeight.constant = height > 240 ? height + 15 : height + 10
         self.productCollectionView.layoutIfNeeded()
         self.productCollectionView.reloadData()
     }

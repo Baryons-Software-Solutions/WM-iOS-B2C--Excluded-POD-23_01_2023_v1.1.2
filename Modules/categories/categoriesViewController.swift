@@ -72,6 +72,7 @@ extension categoriesViewController {
                                 self.tabBarController?.tabBar.items![2].badgeValue = "\(mycartCount)"
                             }
                             DispatchQueue.main.async {
+                                self.categoryCollection.reloadData()
                             }
                             [self.categoryCollection].forEach({ (collectionView) in
                                 collectionView?.delegate = self

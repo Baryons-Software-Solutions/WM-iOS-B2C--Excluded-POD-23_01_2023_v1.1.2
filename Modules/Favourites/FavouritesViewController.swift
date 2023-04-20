@@ -135,69 +135,6 @@ class FavouritesViewController: UIViewController {
         self.filterCollectionView.dataSource = self
         self.filterCollectionView.delegate = self
     }
-    //This function is used for order buyes list
-    func wsBuyerOrders(status: String,supplierId: String,OutletId: String,search: String){
-        guard case ConnectionCheck.isConnectedToNetwork() = true else {
-            return
-        }
-        self.arrStatusDropdown.removeAll()
-        let postString = "start=0&end=0&page=\(pageMySupplierList)&sort_method=DESC&keyword=\(search)&sort_by=&outlet_id=\(OutletId)&supplier_id=\(supplierId)&from_date=&to_date=&status=\(status)"
-        APICall().post(apiUrl: Constants.WebServiceURLs.OrderBuyerListURL, requestPARAMS: postString, isTimeOut: false){
-            (success, responseData) in DispatchQueue.main.async {
-                if success{
-                    let decoder = JSONDecoder()
-                    do {
-                        let dicResponseData = try decoder.decode(PlacedOrderResponseModel.self, from: responseData as! Data)
-                        if let data = dicResponseData.data {
-                            if self.isBottomRefreshDraftOrder == true {
-                                self.suppliersTableView.refreshControl?.hideWithAnimation(hidden: true)
-                                self.arrOrderResponse.append(contentsOf: [data][0].orders)
-                            } else  {
-                                self.arrOrderResponse = [data][0].orders
-                            }
-                            self.isBottomRefreshDraftOrder = false
-                            if self.arrOrderResponse.count > 0{
-                                self.responseCountDraftOrder = [data][0].totalCount
-                                self.suppliersTableView.isHidden = false
-                                self.suppliersTableView.delegate = self
-                                self.suppliersTableView.dataSource = self
-                                self.suppliersTableView.reloadData()
-                            } else {
-                                self.suppliersTableView.isHidden = true
-                                self.SearchView.isHidden = false
-                                self.nodataAvailable.isHidden = true
-                                self.imgfav.isHidden = true
-                                self.Nofav.isHidden = true
-                                self.lblAddYour.isHidden = true
-                                self.btnAddFav.isHidden = true
-                            }
-                            for i in self.arrOrderResponse{
-                                self.arrSuppliers.append(["Title": "All"  , "id" : "" ])
-                                self.arrSuppliers.append(["Title": i.supplierInfo.supplierName?.rawValue ?? ""  , "id" : i.supplierID ])
-                                self.arrOutletList.append(["Title": "All"  , "id" : "" ])
-                            }
-                            var set = Set<String>()
-                            self.arrSuppliers =  self.arrSuppliers.compactMap {
-                                guard let name = $0["Title"] as? String else { return nil }
-                                return set.insert(name).inserted ? $0 : nil
-                            }
-                            var setOutlet = Set<String>()
-                            self.arrOutletList =  self.arrOutletList.compactMap {
-                                guard let name = $0["Title"] as? String else { return nil }
-                                return setOutlet.insert(name).inserted ? $0 : nil
-                            }
-                            self.arrStatusDropdown = [data][0].statusDropdown
-                        }
-                    }catch let err {
-                        print("Session Error: ",err)
-                    }
-                }
-                else{
-                    self.showCustomAlert(message: Constants.AlertMessage.error, isSuccessResponse: false)
-                }
-            }
-        }
-    }
     
     @IBAction func Btnclear(_ sender: Any) {
         vwDelete.isHidden         = true
