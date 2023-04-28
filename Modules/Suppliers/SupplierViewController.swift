@@ -39,6 +39,7 @@ class SupplierViewController: UIViewController {
     var selectedIndexPath                   :IndexPath?
     var clearAllOrShowButtonTapped                = false
     var isLoading  = false
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +117,7 @@ class SupplierViewController: UIViewController {
     }
     @IBAction func clearAllButton(_ sender: Any) {
         clearAllOrShowButtonTapped = true
-        self.filtersSlectedLabel.text = "No Filters Applied"
+        self.filtersSlectedLabel.text = "NoFilters Applied"
         selectedIndexPath              = nil
         self.bgView.isHidden           = false
         self.filterView.isHidden       = false
@@ -222,8 +223,8 @@ extension SupplierViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
         }else{
             cell.bgView.borderWidth = 1
-            cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor = lightBlue
+            cell.bgView.borderColor     = lightBlue
         }
         return cell
     }
@@ -248,8 +249,8 @@ extension SupplierViewController : UICollectionViewDelegate, UICollectionViewDat
         } else  {
             selectedIndexPath = nil
             cell.bgView.borderWidth = 1
-            cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor = lightBlue
+            cell.bgView.borderColor     = lightBlue
             
         }
         if selectedIndexPath != nil {

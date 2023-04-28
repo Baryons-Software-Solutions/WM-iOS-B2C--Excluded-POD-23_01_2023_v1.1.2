@@ -82,6 +82,7 @@ extension WelcomeViewController: UICollectionViewDelegate, UICollectionViewDataS
     // MARK: Manage Button Animations of skip and start
     private func manageButtonAnimations(hideSkip: Bool) {
         UIView.animate(withDuration: 0.0, animations: {
+            print("")
         }) {  finished in
             if finished {
                 self.skipView.isHidden = hideSkip

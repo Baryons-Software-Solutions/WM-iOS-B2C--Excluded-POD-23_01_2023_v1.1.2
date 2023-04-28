@@ -210,7 +210,7 @@ extension UIApplication {
             if let expirationHandler = expirationHandler {
                 taskID = self.beginBackgroundTask(expirationHandler: expirationHandler)
             } else {
-                taskID = self.beginBackgroundTask(expirationHandler: { })
+                taskID = self.beginBackgroundTask(expirationHandler: {""})
             }
             closure()
             self.endBackgroundTask(taskID)

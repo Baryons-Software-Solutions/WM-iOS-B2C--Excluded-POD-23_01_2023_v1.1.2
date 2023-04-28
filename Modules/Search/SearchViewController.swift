@@ -93,6 +93,10 @@ class SearchViewController: UIViewController, getCartCount {
     var clearAllOrShowButtonTapped       = false
     var filterlistLoaded                 = true
     lazy var isLoading                   = false
+    var lightPink = hexStringToUIColor(hex: "#FFF5FA")
+    var darkPink = hexStringToUIColor(hex: "#EC187B")
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -207,10 +211,11 @@ class SearchViewController: UIViewController, getCartCount {
         supplierDropDown.isSelected = !supplierDropDown.isSelected
     }
     @IBAction func BtnCountinueRemove(_ sender: Any) {
+        print("")
         
     }
     @IBAction func BtnCountinueSuccess(_ sender: Any) {
-        
+        print("")
     }
     @IBAction func priceAction(_ sender: Any) {
         if priceDropDwn.isSelected{
@@ -271,7 +276,7 @@ class SearchViewController: UIViewController, getCartCount {
         self.bgView.isHidden = true
         self.filterView.isHidden = true
         if clearAllOrShowButtonTapped == false{
-            filtersAppliesLabel.text  = "Sort & Filter"
+            filtersAppliesLabel.text  = "Sort &Filter"
             self.selectedTopic.removeAll()
             self.arrTempSupplierID.removeAllObjects()
             self.arrTempPrinceID.removeAllObjects()
@@ -283,7 +288,7 @@ class SearchViewController: UIViewController, getCartCount {
         }
     }
     @IBAction func clearAllAction(_ sender: Any) {
-        filtersAppliesLabel.text  = "Sort & Filter"
+        filtersAppliesLabel.text  = "Sort& Filter"
         self.selectedIndexPath  = nil
         self.bgView.isHidden = true
         self.filterView.isHidden = true
@@ -526,11 +531,11 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             cell.layer.cornerRadius         = 10
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
             if arrTempSupplierID.contains(self.filterSupplierList[indexPath.row].id){
-                cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor =  lightPink
+                cell.bgView.borderColor     = darkPink
             }else{
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
             }
             cell.filteredLabel.textColor = .black
             return cell
@@ -546,15 +551,15 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
             if arrTempPrinceID.contains(filterproductListArray[indexPath.row].id){
                 if selectedIndexPath == indexPath{
-                    cell.bgView.backgroundColor = hexStringToUIColor(hex: "#FFF5FA")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                    cell.bgView.backgroundColor = lightPink
+                    cell.bgView.borderColor     = darkPink
                 }else{
-                    cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                    cell.bgView.backgroundColor = lightBlue
+                    cell.bgView.borderColor     = lightBlue
                 }
             }else{
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
             }
             cell.filteredLabel.textColor = .black
             return cell
@@ -571,11 +576,11 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
             
             if arrTempBrandID.contains(filterBrandList[indexPath.row].name){
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor = lightPink
+                cell.bgView.borderColor     = darkPink
             }else{
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
             }
             cell.filteredLabel.textColor = .black
             return cell
@@ -623,7 +628,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
                         }
                         
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -652,7 +657,7 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -820,22 +825,22 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             
             if !arrTempSupplierID.contains(self.filterSupplierList[indexPath.row].id){
                 if selectedIndexPath != indexPath {
-                    cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                    cell.bgView.backgroundColor =  lightPink
+                    cell.bgView.borderColor     = darkPink
                     arrTempSupplierID.add(self.filterSupplierList[indexPath.row].id)
                     selectedTopic.append(self.filterSupplierList[indexPath.row].companyName)
                     selectedIndexPath = indexPath
                 } else {
                     selectedIndexPath = nil
-                    cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                    cell.bgView.backgroundColor = lightBlue
+                    cell.bgView.borderColor     = lightBlue
                     arrTempSupplierID.remove(self.filterSupplierList[indexPath.row].id)
                     selectedTopic.remove(self.filterSupplierList[indexPath.row].companyName)
                 }
                 
             } else  {
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
                 arrTempSupplierID.remove(self.filterSupplierList[indexPath.row].id)
                 selectedTopic.remove(self.filterSupplierList[indexPath.row].companyName)
             }
@@ -849,22 +854,22 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
                 self.selectedTopic.removeAll()
                 arrTempPrinceID.add(self.filterproductListArray[indexPath.row].id)
                 if selectedIndexPath != indexPath {
-                    cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                    cell.bgView.backgroundColor =  lightPink
+                    cell.bgView.borderColor     = darkPink
                     //     arrTempPrinceID.add(self.filterproductListArray[indexPath.row].id)
                     selectedTopic.append(self.filterproductListArray[indexPath.row].filterName)
                     selectedIndexPath = indexPath
                 }else{
                     selectedIndexPath = nil
-                    cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                    cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                    cell.bgView.backgroundColor = lightBlue
+                    cell.bgView.borderColor     = lightBlue
                     arrTempPrinceID.remove(self.filterproductListArray[indexPath.row].id)
                     selectedTopic.remove(self.filterproductListArray[indexPath.row].filterName)
                 }
                 
             } else  {
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
                 arrTempPrinceID.remove(self.filterproductListArray[indexPath.row].id)
                 selectedTopic.remove(self.filterproductListArray[indexPath.row].filterName)
             }
@@ -878,14 +883,14 @@ extension SearchViewController : UICollectionViewDelegate, UICollectionViewDataS
             let cell = brandCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
             
             if !arrTempBrandID.contains(self.filterBrandList[indexPath.row].name) {
-                cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor =  lightPink
+                cell.bgView.borderColor     = darkPink
                 arrTempBrandID.add(self.filterBrandList[indexPath.row].name)
                 selectedTopic.append(self.filterBrandList[indexPath.row].name)
                 
             } else  {
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
                 arrTempBrandID.remove(self.filterBrandList[indexPath.row].name)
                 selectedTopic.remove(self.filterBrandList[indexPath.row].name)
             }
@@ -1018,7 +1023,7 @@ extension SearchViewController{
                                 
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 self.ImgCart.isHidden = false
                                 self.lblWeAreSorry.isHidden = false
@@ -1061,7 +1066,7 @@ extension SearchViewController{
                         self.ProductToadd.isHidden = false
                         self.cartID = dicResponseData.data.cartID
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1091,7 +1096,7 @@ extension SearchViewController{
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1122,7 +1127,7 @@ extension SearchViewController{
                             self.showCustomAlert(message: dicResponseData.message, isSuccessResponse: false)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1153,7 +1158,7 @@ extension SearchViewController{
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1193,7 +1198,7 @@ extension SearchViewController{
                         //                        self.priceFilter()
                     }catch let err {
                         hideLoader()
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1222,6 +1227,7 @@ extension SearchViewController{
         do{
             let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    print("")
                 }
                 if let response = response {
                     let nsHTTPResponse = response as! HTTPURLResponse
@@ -1256,7 +1262,7 @@ extension SearchViewController{
                             }
                             
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 hideLoader()
                             }
@@ -1332,7 +1338,7 @@ extension SearchViewController{
                             }
                             
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 hideLoader()
                             }

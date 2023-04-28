@@ -62,7 +62,7 @@ class WishlistViewController: UIViewController {
     var isBottomRefreshMySupplierList  = false
     var responseCountProductList       = 0
     var filterlistLoaded               = true
-    
+    var sessionError = "Session Error: "
     override func viewDidLoad() {
         super.viewDidLoad()
         wsWishlistGet()
@@ -121,6 +121,7 @@ class WishlistViewController: UIViewController {
         removeProductFromWishlist(productCode: arrWishlistResponce[selectedIndex].productCode ?? "")
     }
     @IBAction func BtnClose(_ sender: Any) {
+        print("")
     }
     @IBAction func BtnSubmitProductQty(_ sender: Any) {
         self.txtChangeProductQty.resignFirstResponder()
@@ -187,7 +188,7 @@ class WishlistViewController: UIViewController {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -218,7 +219,7 @@ class WishlistViewController: UIViewController {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -247,7 +248,7 @@ class WishlistViewController: UIViewController {
                             self.showCustomAlert(message: dicResponseData.message, isSuccessResponse: false)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -273,7 +274,7 @@ class WishlistViewController: UIViewController {
                         self.ProductAddToCart.isHidden = false
                         self.cartID = dicResponseData.data.cartID
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -379,11 +380,13 @@ extension WishlistViewController{
                             
                             DispatchQueue.main.async {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    print("")
                                 }
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
+                                print("")
                             }
                         }
                         
@@ -464,7 +467,7 @@ extension WishlistViewController{
                             self.WishlistTableView.reloadData()
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         self.WishlistTableView.reloadData()
                         self.WishlistTableView.isHidden = true
                         self.lblexplore.isHidden = false
@@ -688,7 +691,7 @@ extension WishlistViewController : UITableViewDataSource, UITableViewDelegate{
                         }
                         
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

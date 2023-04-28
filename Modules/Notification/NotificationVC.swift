@@ -285,7 +285,7 @@ class NotificationVC: UIViewController {
                         self.lblYourUpTo.isHidden = false
                         self.BtnGoBack.isHidden = false
                         self.imgNotification.isHidden = false
-                        print("Session Error: ",err)
+                        print("Session Error:",err)
                     }
                 }
                 else{

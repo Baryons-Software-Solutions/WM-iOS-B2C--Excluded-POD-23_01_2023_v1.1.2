@@ -14,6 +14,7 @@ var selectedTags = [String]()
 var selectedTopic = [String]()
 var isSearchCalled = false
 
+
 class FilteredTableViewCell: UITableViewCell {
     
     @IBOutlet weak var bgView           : UIView!
@@ -24,7 +25,7 @@ class FilteredTableViewCell: UITableViewCell {
     
     var topic = [String]()
     var identifier = "FilterCollectionViewCell"
-    
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -65,8 +66,8 @@ extension FilteredTableViewCell : UICollectionViewDelegate, UICollectionViewData
         let cellSelected =  selectedTopic.contains(topic[indexPath.item])
         
         cell.bgView.borderWidth = 1
-        cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-        cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+        cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : lightBlue
+        cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : lightBlue
         cell.filteredLabel.textColor = .black
         return cell
     }
@@ -99,8 +100,8 @@ extension FilteredTableViewCell : UICollectionViewDelegate, UICollectionViewData
         
         if let cell = collectionView.cellForItem(at: indexPath)as? FilterCollectionViewCell{
             let cellSelected = selectedTopic.contains(topic[indexPath.item])
-            cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : lightBlue
+            cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : lightBlue
             self.productCollectionView.reloadData()
         }
     }

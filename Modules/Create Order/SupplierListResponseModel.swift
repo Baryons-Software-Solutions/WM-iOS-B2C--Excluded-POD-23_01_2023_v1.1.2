@@ -177,18 +177,18 @@ struct BuyerID: Codable {
 }
 
 // MARK: - DefaultSetting
-struct DefaultSetting: Codable {
-    let mobile, email, contact /*accountDetails*/: String
- //   let vatPercentage: ValueWrapper
- //   let descriptionOfCompany: String
-    
-    enum CodingKeys: String, CodingKey {
-        case mobile, email, contact
-      //  case accountDetails = "account_details"
-    //    case vatPercentage = "vat_percentage"
-   //     case descriptionOfCompany = "description_of_company"
-    }
-}
+//struct DefaultSetting: Codable {
+// //   let /*mobile, email, contact*/ /*accountDetails*/: String
+// //   let vatPercentage: ValueWrapper
+// //   let descriptionOfCompany: String
+//
+//    enum CodingKeys: String, CodingKey {
+//     //   case mobile, email, contact
+//      //  case accountDetails = "account_details"
+//    //    case vatPercentage = "vat_percentage"
+//   //     case descriptionOfCompany = "description_of_company"
+//    }
+//}
 
 enum customdataType: Codable {
     case array([String])

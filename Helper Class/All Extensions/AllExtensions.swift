@@ -218,4 +218,3 @@ public enum PanDirection: Int {
     
     public var isHorizontal: Bool { return !isVertical }
 }
-

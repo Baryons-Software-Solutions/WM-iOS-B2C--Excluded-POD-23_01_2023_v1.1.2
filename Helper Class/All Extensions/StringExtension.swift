@@ -9,6 +9,7 @@
 
 import Foundation
 
+ var selfMaches = "SELF MATCHES %@"
 extension String {
     public var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
@@ -295,7 +296,7 @@ extension String {
     
     func isValidDecimal() -> Bool {
         let regex1: String = "^\\d+(\\.\\d{1,2})?$"
-        let test1: NSPredicate = NSPredicate.init(format: "SELF MATCHES %@", regex1)
+        let test1: NSPredicate = NSPredicate.init(format: selfMaches, regex1)
         return test1.evaluate(with: self)
     }
     
@@ -318,8 +319,8 @@ extension String {
     func isValidEmail() -> Bool {
         let regex1: String = "\\A[A-Za-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,64}\\z"
         let regex2: String = "^(?=.{1,64}@.{4,64}$)(?=.{6,100}$).*"
-        let test1: NSPredicate = NSPredicate.init(format: "SELF MATCHES %@", regex1)
-        let test2: NSPredicate = NSPredicate.init(format: "SELF MATCHES %@", regex2)
+        let test1: NSPredicate = NSPredicate.init(format: selfMaches, regex1)
+        let test2: NSPredicate = NSPredicate.init(format: selfMaches, regex2)
         return test1.evaluate(with: self) && test2.evaluate(with: self)
     }
     

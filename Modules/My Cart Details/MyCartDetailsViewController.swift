@@ -114,6 +114,7 @@ class MyCartDetailsViewController: UIViewController ,PaymentManagerDelegate{
     var payTabsPaymentProfileID: String     = ""
     var paymentsCallingCount                = 0
     var arrOutletList                       = [OutletListResponse]()
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -240,6 +241,7 @@ class MyCartDetailsViewController: UIViewController ,PaymentManagerDelegate{
     }
     
     @IBAction func selectAllAction(_ sender: Any) {
+        print("")
     }
     
     @IBAction func addSpecialProductAction(_ sender: Any) {
@@ -468,6 +470,7 @@ extension MyCartDetailsViewController {
             let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 hideLoader()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    print("")
                 }
                 if let response = response {
                     let nsHTTPResponse = response as! HTTPURLResponse
@@ -493,7 +496,7 @@ extension MyCartDetailsViewController {
                                 }
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 hideLoader()
                             }
@@ -708,7 +711,7 @@ extension MyCartDetailsViewController {
                             self.present(alert, animated: true, completion: nil)
                         }
                     } else{
-                        print("Session Error: ")
+                        print(self.sessionError)
                         self.showToast(message: Constants.AlertMessage.error)
                     }
                 } else {
@@ -748,7 +751,7 @@ extension MyCartDetailsViewController {
                         }
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 } else{
                     self.showToast(message: Constants.AlertMessage.error)
@@ -947,10 +950,10 @@ extension MyCartDetailsViewController{
                                 }
                             }
                         } else {
-                            print("Session Error: ")
+                            print(self.sessionError)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1058,11 +1061,11 @@ extension MyCartDetailsViewController{
                             self.nodataLabel.text = dicResponseData.message
                         }
                     } catch let err {
-                        print("Session Error: ",err)
-                        self.showCustomAlert(message: "No records found.",isSuccessResponse: false)
+                        print(self.sessionError,err)
+                        self.showCustomAlert(message: "Norecords found.",isSuccessResponse: false)
                         self.nodataLabel.isHidden = false
                         self.nodataView.isHidden = false
-                        self.nodataLabel.text = "No records found."
+                        self.nodataLabel.text = "No recordsfound."
                     }
                 } else {
                     self.showCustomAlert(message: Constants.AlertMessage.error,isSuccessResponse: false)
@@ -1131,7 +1134,7 @@ extension MyCartDetailsViewController{
                         self.vwNotes.isHidden = true
                         self.wsCartGet()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1207,7 +1210,7 @@ extension MyCartDetailsViewController{
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1234,7 +1237,7 @@ extension MyCartDetailsViewController{
                         print(dicResponseData.message)
                         self.wsCartGet()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1264,7 +1267,7 @@ extension MyCartDetailsViewController{
                         self.showCustomAlert(message: dicResponseData.message)
                         self.wsCartGet()
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 } else {
                     self.showCustomAlert(message: Constants.AlertMessage.error,isSuccessResponse: false)

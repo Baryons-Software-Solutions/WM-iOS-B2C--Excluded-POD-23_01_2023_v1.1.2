@@ -111,7 +111,7 @@ struct GetMyfavouriteList: Codable {
     let phoneNumberCode, mobileNoCode: String
     let phoneNumber, mobileNo, email: String
     let createdBy: String
-    let defaultSetting: DefaultSetting?
+ //   let defaultSetting: DefaultSetting?
     let isOffline: Bool?
     let status /*ratings*/: Int?
     let isFavorite: Bool?
@@ -129,7 +129,7 @@ struct GetMyfavouriteList: Codable {
         case mobileNo = "mobile_no"
         case email
         case createdBy = "created_by"
-        case defaultSetting = "default_setting"
+      //  case defaultSetting = "default_setting"
         case isOffline = "is_offline"
         case status, /*ratings,*/ isFavorite, license, isfavouriteValue
         case productCount = "product_count"

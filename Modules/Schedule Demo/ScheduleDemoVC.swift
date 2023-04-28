@@ -433,9 +433,11 @@ class ScheduleDemoVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnCallACt(_ sender: Any) {
+        print("")
     }
 
     @IBAction func btnAddressAct(_ sender: Any) {
+        print("")
     }
     @IBAction func btnEmailAct(_ sender: Any) {
         let email = "support@watermelon.market"

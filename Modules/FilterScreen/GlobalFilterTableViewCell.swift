@@ -27,6 +27,7 @@ class GlobalFilterTableViewCell: UITableViewCell {
     var identifier          = "FilterCollectionViewCell"
     var selectedContent     = [[Int:Any]]()
     var selectedIndex        = [Int]()
+    var lightBlue  = hexStringToUIColor(hex: "#EDF5FF")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -71,8 +72,8 @@ extension GlobalFilterTableViewCell : UICollectionViewDelegate, UICollectionView
         cell.filteredLabel.font = UIFont.systemFont(ofSize: 14.0)
         let cellSelected =  selectedTopic.contains(topic[indexPath.item])
         cell.bgView.borderWidth = 1
-        cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-        cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+        cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : lightBlue
+        cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : lightBlue
         cell.filteredLabel.textColor = .black
         return cell
     }
@@ -100,8 +101,8 @@ extension GlobalFilterTableViewCell : UICollectionViewDelegate, UICollectionView
                 selectedContent[row][cell.productSectionName] = individualDic
             }
             print(selectedContent)
-            cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  cellSelected ? hexStringToUIColor(hex: "#FFF5FA") : lightBlue
+            cell.bgView.borderColor     =  cellSelected ? hexStringToUIColor(hex: "#EC187B") : lightBlue
             self.productCollectionView.reloadData()
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "filter_Selection"), object: nil,userInfo:  ["indexpath" : indexPath,"topic":topic[indexPath.row]])

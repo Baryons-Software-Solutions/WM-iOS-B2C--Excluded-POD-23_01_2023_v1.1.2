@@ -83,6 +83,10 @@ class SupplierDetailsViewController: UIViewController, getCartCount {
     var selectedCategoryPath             :IndexPath?
     var clearAllOrShowButtonTapped       = false
     lazy var isLoading                   = false
+    var lightPink = hexStringToUIColor(hex: "#FFF5FA")
+    var darkPink = hexStringToUIColor(hex: "#EC187B")
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +184,7 @@ class SupplierDetailsViewController: UIViewController, getCartCount {
     }
     
     @IBAction func locationButtonAction(_ sender: Any) {
+        print("")
         
     }
     @IBAction func mailAction(_ sender: Any) {
@@ -411,12 +416,12 @@ extension SupplierDetailsViewController : UICollectionViewDelegate, UICollection
             cell.filteredLabel.text = filterArray[indexPath.item]
             if selectedIndexPath == indexPath{
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor =  lightPink
+                cell.bgView.borderColor     = darkPink
             }else{
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
             }
             return cell
         }else if collectionView == categoryCollectionView {
@@ -427,12 +432,12 @@ extension SupplierDetailsViewController : UICollectionViewDelegate, UICollection
             if selectedCategoryPath == indexPath{
                 arrTempCategoryID.contains(categoryList[indexPath.row].id)
                 cell?.bgView.borderWidth = 1
-                cell?.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell?.bgView.borderColor     =  hexStringToUIColor(hex: "#EC187B")
+                cell?.bgView.backgroundColor =  lightPink
+                cell?.bgView.borderColor     =  darkPink
             }else{
                 cell?.bgView.borderWidth = 1
-                cell?.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell?.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell?.bgView.backgroundColor = lightBlue
+                cell?.bgView.borderColor     = lightBlue
             }
             return cell ?? UICollectionViewCell()
         }else{
@@ -655,29 +660,29 @@ extension SupplierDetailsViewController : UICollectionViewDelegate, UICollection
             let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
             if selectedIndexPath != indexPath {
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor =  lightPink
+                cell.bgView.borderColor     = darkPink
                 selectedIndexPath = indexPath
             } else  {
                 selectedIndexPath = nil
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
             }
             self.filterCollectionView.reloadData()
         }else if collectionView == categoryCollectionView{
             let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
             if selectedCategoryPath != indexPath {
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor =  hexStringToUIColor(hex: "#FFF5FA")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EC187B")
+                cell.bgView.backgroundColor =  lightPink
+                cell.bgView.borderColor     = darkPink
                 arrTempCategoryID.add(self.categoryList[indexPath.row].id)
                 selectedCategoryPath = indexPath
             } else  {
                 selectedCategoryPath = nil
                 cell.bgView.borderWidth = 1
-                cell.bgView.backgroundColor = hexStringToUIColor(hex: "#EDF5FF")
-                cell.bgView.borderColor     = hexStringToUIColor(hex: "#EDF5FF")
+                cell.bgView.backgroundColor = lightBlue
+                cell.bgView.borderColor     = lightBlue
                 arrTempCategoryID.remove(self.categoryList[indexPath.row].id)
             }
             self.categoryCollectionView.reloadData()
@@ -872,7 +877,7 @@ extension SupplierDetailsViewController {
                                 }
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 self.ImageNoCart.isHidden       = false
                                 self.lblNoCart.isHidden       = false
@@ -914,7 +919,7 @@ extension SupplierDetailsViewController {
                         self.cartID = dicResponseData.data.cartID
                         //  self.showCustomAlert(message: dicResponseData.message)
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -945,7 +950,7 @@ extension SupplierDetailsViewController {
                         }else{
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -978,7 +983,7 @@ extension SupplierDetailsViewController {
                             self.showToast(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1006,7 +1011,7 @@ extension SupplierDetailsViewController {
                         }else{
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1030,7 +1035,7 @@ extension SupplierDetailsViewController {
                         let dicResponseData = try decoder.decode(ChangeStatusResponseModel.self, from: responseData as! Data)
                         self.showCustomAlert(message: dicResponseData.message)
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1122,7 +1127,7 @@ extension SupplierDetailsViewController {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1153,7 +1158,7 @@ extension SupplierDetailsViewController {
                             self.showCustomAlert(message: dicResponseData.message, isSuccessResponse: false)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1184,7 +1189,7 @@ extension SupplierDetailsViewController {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

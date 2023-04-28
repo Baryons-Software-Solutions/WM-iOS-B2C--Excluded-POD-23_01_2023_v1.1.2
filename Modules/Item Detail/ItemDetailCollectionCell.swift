@@ -60,6 +60,7 @@ class ItemDetailCollectionCell: UICollectionViewCell {
     }
     
     @objc func donePickerCountry() {
+        print("")
     }
     @objc func labelTapped(_ sender: UITapGestureRecognizer? = nil) {
         itemTapped?()

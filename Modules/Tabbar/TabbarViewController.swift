@@ -95,6 +95,7 @@ class TabbarViewController: UITabBarController {
     
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("")
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

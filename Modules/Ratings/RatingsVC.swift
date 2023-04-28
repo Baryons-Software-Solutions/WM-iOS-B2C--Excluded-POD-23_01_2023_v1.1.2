@@ -35,6 +35,7 @@ class RatingsVC: UIViewController {
     var supplierId          = ""
     var selectedInvoiceID   = ""
     var rating              = 0.0
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +109,7 @@ class RatingsVC: UIViewController {
                             self.tblRatingList.reloadData()
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         self.lblNoData.isHidden = false
                         self.tblRatingList.isHidden = true
                     }
@@ -172,7 +173,7 @@ class RatingsVC: UIViewController {
                         self.vwRating.text = "\(dicResponseData.data.updatedRatings)"
                         self.wsRatingList()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -204,7 +205,7 @@ class RatingsVC: UIViewController {
                         self.wsRatingList()
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -236,7 +237,7 @@ class RatingsVC: UIViewController {
                         self.wsRatingList()
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

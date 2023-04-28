@@ -16,6 +16,8 @@ public class PayTabsService {
     static let showShippingInfo: Bool = true
     static let showBillingInfo: Bool = true
     static let screenTitle: String = "Pay with Card"
+    static let dubaiBold: String = "Dubai-Bold"
+ 
     
     // This method is used for payment tab background color, button color,etc
     static func getSDKTheme() -> PaymentSDKTheme {
@@ -25,9 +27,9 @@ public class PayTabsService {
         theme.secondaryColor = .clear
         theme.buttonFontColor = .white
         theme.buttonColor = UIColor(hexFromString: "427D6C")
-        theme.buttonFont = UIFont(name: "Dubai-Bold", size: 20)
-        theme.titleFont = UIFont(name: "Dubai-Bold", size: 22)
-        theme.secondaryFont = UIFont(name: "Dubai-Bold", size: 18)
+        theme.buttonFont = UIFont(name: dubaiBold, size: 20)
+        theme.titleFont = UIFont(name: dubaiBold, size: 22)
+        theme.secondaryFont = UIFont(name: dubaiBold, size: 18)
         theme.primaryFont = UIFont(name: "Dubai-Regular", size: 18)
         
         return theme

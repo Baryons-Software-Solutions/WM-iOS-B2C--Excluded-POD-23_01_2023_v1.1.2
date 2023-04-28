@@ -83,6 +83,9 @@ class DeliveryVC: UIViewController {
     var statusIndexPath                     : IndexPath?
     var arrPaymentResponse                  = [Payment]()
     var NoFilter = "No Filters Applied"
+    var lightPink = hexStringToUIColor(hex: "#FFF5FA")
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
+    var darkPink = hexStringToUIColor(hex: "#EC187B")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -564,8 +567,8 @@ extension DeliveryVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             return cell
         }else if collectionView == outletCollectionView{
@@ -575,8 +578,8 @@ extension DeliveryVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  outletIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             
             return cell
@@ -586,8 +589,8 @@ extension DeliveryVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  statusIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             
             return cell
@@ -667,7 +670,7 @@ extension DeliveryVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }else if supplierIndexPath != nil && outletIndexPath != nil {
             self.filterAppliedLabel.text = "2 Filters Applied"
         }else if outletIndexPath != nil && statusIndexPath != nil{
-            self.filterAppliedLabel.text = "2 Filters Applied"
+            self.filterAppliedLabel.text = "2Filters Applied"
         }else if statusIndexPath != nil  && supplierIndexPath != nil {
             self.filterAppliedLabel.text = "2 Filters Applied"
         }else {

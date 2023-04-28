@@ -152,6 +152,7 @@ class DashBoardViewController: UIViewController{
         self.txtLocation.resignFirstResponder()
     }
     @objc func bgViewTapped(_ sender: UITapGestureRecognizer) {
+        print("")
         
     }
     @objc func showAddressView(_ sender: UITapGestureRecognizer) {
@@ -612,7 +613,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.topProductsCollectionView.frame.width/2){
                     maxHeight = Int(cellWidth)/Int(self.topProductsCollectionView.frame.width/2)
                 }else{
-                    print("not maximum")
+                    print("notmaximum")
                 }
             }
             print(maxHeight * 30)
@@ -628,7 +629,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.topProductsCollectionView.frame.width/2){
                     maxHeight = Int(cellWidth)/Int(self.topProductsCollectionView.frame.width/2)
                 }else{
-                    print("not maximum")
+                    print("NOT maximum")
                 }
             }
             
@@ -653,7 +654,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.ProductsCollectionView.frame.width/2){
                     maxHeight = Int(cellWidth)/Int(self.ProductsCollectionView.frame.width/2)
                 }else{
-                    print("not maximum")
+                    print("not maximum ")
                 }
             }
             print(maxHeight * 30)
@@ -669,7 +670,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.ProductsCollectionView.frame.width/2){
                     maxHeight = Int(cellWidth)/Int(self.ProductsCollectionView.frame.width/2)
                 }else{
-                    print("not maximum")
+                    print("Not maximum")
                 }
             }
             
@@ -695,7 +696,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.suppliersNearByListCollecionView.frame.width/3 ){
                     maxHeight = Int(cellWidth)/Int(self.suppliersNearByListCollecionView.frame.width/3 )
                 }else{
-                    print("not maximum")
+                    print("not Maximum")
                 }
             }
             print(maxHeight * 30)
@@ -711,7 +712,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.suppliersNearByListCollecionView.frame.width/3 ){
                     maxHeight = Int(cellWidth)/Int(self.suppliersNearByListCollecionView.frame.width/3 )
                 }else{
-                    print("not maximum")
+                    print("Not Maximum")
                 }
             }
             
@@ -734,7 +735,7 @@ extension DashBoardViewController : UICollectionViewDelegate, UICollectionViewDa
                 if maxHeight <= Int(cellWidth)/Int(self.favCollectionView.frame.width/3 ){
                     maxHeight = Int(cellWidth)/Int(self.favCollectionView.frame.width/3 )
                 }else{
-                    print("not maximum")
+                    print("Not MAximum")
                 }
             }
             print(maxHeight * 30)

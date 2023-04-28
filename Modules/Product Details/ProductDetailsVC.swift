@@ -64,6 +64,7 @@ class ProductDetailsVC: UIViewController {
     var defaultImageurl                : URL?
     var similarProductDetailsDic       = [SimilarProduct]()
     var selectedIndexPathAddress       = 0
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -293,6 +294,7 @@ class ProductDetailsVC: UIViewController {
         self.navigationController?.pushViewController(objItemDetailVC, animated: true)
     }
     @IBAction func sellerNameAction(_ sender: Any) {
+        print("")
         
     }
     @IBAction func shareAction(_ sender: Any) {
@@ -523,7 +525,7 @@ extension ProductDetailsVC {
                         }
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         self.showCustomAlert(message: Constants.AlertMessage.error, isSuccessResponse: false,buttonTitle: "Try again")
                     }
                 }
@@ -552,7 +554,7 @@ extension ProductDetailsVC {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -580,7 +582,7 @@ extension ProductDetailsVC {
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -611,7 +613,7 @@ extension ProductDetailsVC {
                         self.ProductAddCart.isHidden = false
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -676,7 +678,7 @@ extension ProductDetailsVC {
                             
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: 0)
                     }
                 }
@@ -715,7 +717,7 @@ extension ProductDetailsVC {
                             self.showCustomAlert(message: dicResponseData.message,isSuccessResponse: false)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -740,7 +742,7 @@ extension ProductDetailsVC {
                         self.showCustomAlert(message: dicResponseData.message)
                         self.wsCartGet()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

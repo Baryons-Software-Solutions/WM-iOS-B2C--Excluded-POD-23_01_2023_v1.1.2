@@ -113,6 +113,10 @@ class InvoicesVC: UIViewController {
     var supplierId                      = ""
     var outletId                        = ""
     var statusId                        = "0"
+    var sessionError = "Session Error: "
+    var darkPink = hexStringToUIColor(hex: "#EC187B")
+    var lightPink = hexStringToUIColor(hex: "#FFF5FA")
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
     
     //MARK: - Variable Declaration
     // var titlesDic = [String]()
@@ -429,7 +433,7 @@ class InvoicesVC: UIViewController {
                             self.tblInvoiceList.reloadData()
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         //   self.lblNoData.text = "No records found!"
                         self.lblNoData.isHidden = true
                         self.SearchView.isHidden = true
@@ -548,7 +552,7 @@ class InvoicesVC: UIViewController {
                             self.tblInvoiceList.reloadData()
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                         self.lblNoData.text = "No records found!"
                         self.lblNoData.isHidden = true
                         self.SearchView.isHidden = true
@@ -649,7 +653,7 @@ class InvoicesVC: UIViewController {
                         
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -743,7 +747,7 @@ class InvoicesVC: UIViewController {
                             }
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -776,7 +780,7 @@ class InvoicesVC: UIViewController {
                         self.vwReceivePayment.isHidden = true
                         self.wsInvoicesBuyerList(status: "-1", supplierId: self.txtSupplierFilter.selectedID, OutletId: self.txtOutletFIlter.selectedID, search: "")
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -994,7 +998,7 @@ class InvoicesVC: UIViewController {
                         }
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1079,7 +1083,7 @@ class InvoicesVC: UIViewController {
                         
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1225,11 +1229,11 @@ extension InvoicesVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         if collectionView == filterCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
             cell.filteredLabel.text = topFilterContent[indexPath.item]
-            cell.filteredLabel.textColor = hexStringToUIColor(hex: "#EC187B")
+            cell.filteredLabel.textColor = darkPink
             cell.bgView.cornerRadius = 15
             cell.filteredLabel.font = UIFont.systemFont(ofSize: 14.0)
             if selectedIndexPath == indexPath {
-                cell.filteredLabel.textColor = hexStringToUIColor(hex: "#EC187B")
+                cell.filteredLabel.textColor = darkPink
                 cell.bgView.backgroundColor  = hexStringToUIColor(hex: "#FFFFFF")
             }else{
                 cell.filteredLabel.textColor = hexStringToUIColor(hex: "#FFFFFF")
@@ -1243,8 +1247,8 @@ extension InvoicesVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             return cell
         }else if collectionView == outletCollectionView{
@@ -1254,8 +1258,8 @@ extension InvoicesVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  outletIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             
             return cell
@@ -1265,8 +1269,8 @@ extension InvoicesVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  statusIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             
             return cell
@@ -1349,6 +1353,7 @@ extension InvoicesVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func numberofFiltersApplies(){
+        print("")
     }
 }
 // MARK: - UITableView Delegate Methods

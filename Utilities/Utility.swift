@@ -35,6 +35,7 @@ func presentViewController(vc: UIViewController) {
     
     if (viewController.presentedViewController != nil) {
         viewController.presentedViewController?.dismiss(animated: true, completion: {
+            print("")
         })
         viewController.present(vc, animated: true, completion: nil)
     } else {

@@ -73,6 +73,11 @@ class MyOrdersViewController: UIViewController {
     var supplierId                     = ""
     var outletId                       = ""
     var statusId                       = "0"
+    var darkPink = hexStringToUIColor(hex: "#EC187B")
+    var lightPink = hexStringToUIColor(hex: "#FFF5FA")
+    var lightBlue = hexStringToUIColor(hex: "#EDF5FF")
+    var lightGreen = UIColor(hexFromString: "#36B152")
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -389,11 +394,11 @@ extension MyOrdersViewController : UICollectionViewDelegate, UICollectionViewDat
         if collectionView == filterCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
             cell.filteredLabel.text = topFilterContent[indexPath.item]
-            cell.filteredLabel.textColor = hexStringToUIColor(hex: "#EC187B")
+            cell.filteredLabel.textColor = darkPink
             cell.bgView.cornerRadius = 15
             cell.filteredLabel.font = UIFont.systemFont(ofSize: 14.0)
             if selectedIndexPath == indexPath {
-                cell.filteredLabel.textColor = hexStringToUIColor(hex: "#EC187B")
+                cell.filteredLabel.textColor = darkPink
                 cell.bgView.backgroundColor  = hexStringToUIColor(hex: "#FFFFFF")
             }else{
                 cell.filteredLabel.textColor = hexStringToUIColor(hex: "#FFFFFF")
@@ -407,8 +412,8 @@ extension MyOrdersViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  supplierIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  supplierIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             return cell
         }else if collectionView == outletCollectionView{
@@ -418,8 +423,8 @@ extension MyOrdersViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  outletIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  outletIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  outletIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             return cell
         }else if collectionView == statusCollectionView{
@@ -428,8 +433,8 @@ extension MyOrdersViewController : UICollectionViewDelegate, UICollectionViewDat
             cell.bgView.borderWidth         = 1
             cell.layer.cornerRadius         = 6
             cell.filteredLabel.font         = UIFont.systemFont(ofSize: 14.0)
-            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#FFF5FA") : hexStringToUIColor(hex: "#EDF5FF")
-            cell.bgView.borderColor     =  statusIndexPath == indexPath ? hexStringToUIColor(hex: "#EC187B") : hexStringToUIColor(hex: "#EDF5FF")
+            cell.bgView.backgroundColor =  statusIndexPath == indexPath ? lightPink : lightBlue
+            cell.bgView.borderColor     =  statusIndexPath == indexPath ? darkPink : lightBlue
             cell.filteredLabel.textColor = .black
             return cell
         }else{
@@ -510,6 +515,7 @@ extension MyOrdersViewController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func numberofFiltersApplies(){
+        print("")
         
     }
 }
@@ -564,8 +570,8 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
                 paymentStatus = "Paid"
                 cell?.paidLabel.text = "Paid"
                 cell?.paidLabel.textColor = .white
-                cell?.paidLabel.backgroundColor = UIColor(hexFromString: "#36B152")
-                cell?.paidLabel.borderColor = UIColor(hexFromString: "#36B152")
+                cell?.paidLabel.backgroundColor = lightGreen
+                cell?.paidLabel.borderColor = lightGreen
                 cell?.paidLabel.borderWidth = 0
                 cell?.payementDueLabel.isHidden = true
             } else {
@@ -576,7 +582,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
                 }
                 if self.arrOrderResponse[indexPath.row].supplierID == "5fe9bd17e01343382c2ada9e"  {
                     cell?.paidLabel.text = self.arrOrderResponse[indexPath.row].statusName.rawValue
-                    paymentStatus = "Pay Now"
+                    paymentStatus = "PayNow"
                     cell?.paidLabel.text = "Pay Now"
                     cell?.paidLabel.textColor = .white
                     cell?.paidLabel.backgroundColor = .gray
@@ -665,8 +671,8 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
                 paymentStatus = "Paid"
                 cell?.paidLabel.text = "Paid"
                 cell?.paidLabel.textColor = .white
-                cell?.paidLabel.backgroundColor = UIColor(hexFromString: "#36B152")
-                cell?.paidLabel.borderColor = UIColor(hexFromString: "#36B152")
+                cell?.paidLabel.backgroundColor = lightGreen
+                cell?.paidLabel.borderColor = lightGreen
                 cell?.paidLabel.borderWidth = 0
                 cell?.payementDueLabel.isHidden = true
             } else {
@@ -677,7 +683,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
                 }
                 if self.arrOrderResponse[indexPath.row].supplierID == "5fe9bd17e01343382c2ada9e"  {
                     cell?.paidLabel.text = self.arrOrderResponse[indexPath.row].statusName.rawValue
-                    paymentStatus = "Pay Now"
+                    paymentStatus = "PayNow"
                     
                     cell?.paidLabel.text = "Pay Now"
                     cell?.paidLabel.textColor = .white
@@ -707,7 +713,7 @@ extension MyOrdersViewController : UITableViewDataSource, UITableViewDelegate{
                     buyerCompanyName = buyerDetails
                 }
                 cell?.productname.text = "Buyer: " + buyerCompanyName
-                cell?.outletNameLabel.text = "Address: " + self.arrOrderResponse[indexPath.row].outletInfo.name
+                cell?.outletNameLabel.text = "Address:" + self.arrOrderResponse[indexPath.row].outletInfo.name
             } else {
                 cell?.ordersImageView.isHidden = false
                 cell?.productname.text = self.arrOrderResponse[indexPath.row].supplierInfo.supplierName?.rawValue ?? ""
@@ -848,7 +854,7 @@ extension MyOrdersViewController {
                         }
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.self.sessionError,err)
                     }
                 }
                 else{
@@ -922,7 +928,7 @@ extension MyOrdersViewController {
                         }
                         
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1000,7 +1006,7 @@ extension MyOrdersViewController {
                             }
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1104,7 +1110,7 @@ extension MyOrdersViewController {
                         self.arrDraftOrderResponse.removeAll()
                         self.apiCallingOfBuyersSupliersOnSelectedIndex()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

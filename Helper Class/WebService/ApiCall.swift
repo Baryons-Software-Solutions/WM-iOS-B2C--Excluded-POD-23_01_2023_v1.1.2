@@ -14,6 +14,7 @@ class APICall: NSObject {
     
     let constValueField = "application/json"
     let constHeaderField = "Content-Type"
+    let bearer = "Bearer "
     func postA<T : Decodable ,A>(apiUrl : String, requestPARAMS: [String: A], model: T.Type, isLoader : Bool = true , isErrorToast : Bool = true , completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
         
         requestMethod3(apiUrl: apiUrl, params: requestPARAMS as [String : AnyObject], method: "POST", model: model , isLoader : isLoader , isErrorToast : isErrorToast , completion: completion)
@@ -29,7 +30,7 @@ class APICall: NSObject {
         var request = URLRequest(url: URL(string: apiUrl)!)
         request.httpMethod = method as String
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
-            request.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
+            request.setValue(bearer + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
             
         }
         let jsonTodo: NSData
@@ -146,7 +147,7 @@ class APICall: NSObject {
         request.httpMethod = method as String
         request.setValue(constValueField, forHTTPHeaderField: constHeaderField)
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
-            request.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
+            request.setValue(bearer + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
             
         }
         request.httpBody = params.data(using: String.Encoding.utf8);
@@ -233,7 +234,7 @@ class APICall: NSObject {
         var request = URLRequest(url: URL(string: apiUrl)!)
         request.httpMethod = method as String
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
-            request.setValue("Bearer " + getTokenValue(), forHTTPHeaderField: "Authorization")
+            request.setValue(bearer + getTokenValue(), forHTTPHeaderField: "Authorization")
             
         }
         request.httpBody = params.data(using: String.Encoding.utf8);
@@ -310,7 +311,7 @@ class APICall: NSObject {
         var request = URLRequest(url: URL(string: apiUrl)!)
         request.httpMethod = method as String
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
-            request.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
+            request.setValue(bearer + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
             
         }
         
@@ -385,8 +386,8 @@ class APICall: NSObject {
         var request = URLRequest(url: URL(string: apiUrl)!)
         request.httpMethod = method as String
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
-            //  request.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
-            request.setValue("Bearer " + getTokenValue(), forHTTPHeaderField: "Authorization")
+            //  request.setValue(bearer + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
+            request.setValue(bearer + getTokenValue(), forHTTPHeaderField: "Authorization")
         }
         print("requestGetMethod API Name:: \n \(apiUrl)")
         print("HEADERS:: \n \(request.allHTTPHeaderFields)")

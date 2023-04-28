@@ -8,6 +8,7 @@
 //
 
 import Foundation
+var selfMache = "SELF MATCHES %@"
 extension UITextField: UITextFieldDelegate {
     //    static var localizedTexts:String? = nil;
     
@@ -127,8 +128,8 @@ extension UITextField: UITextFieldDelegate {
     func isValidEmail() -> Bool {
         let regex1: String = "\\A[A-Za-z0-9]+([-._][a-z0-9]+)*@([a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,64}\\z"
         let regex2: String = "^(?=.{1,64}@.{4,64}$)(?=.{6,100}$).*"
-        let test1: NSPredicate = NSPredicate.init(format: "SELF MATCHES %@", regex1)
-        let test2: NSPredicate = NSPredicate.init(format: "SELF MATCHES %@", regex2)
+        let test1: NSPredicate = NSPredicate.init(format: selfMache, regex1)
+        let test2: NSPredicate = NSPredicate.init(format: selfMache, regex2)
         return test1.evaluate(with: self.text) && test2.evaluate(with: self.text)
     }
     
@@ -298,7 +299,7 @@ extension UITextField {
     
     func isValidUserName() -> Bool {
         let userNameRegEx = "[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$"
-        let userNameTest = NSPredicate(format: "SELF MATCHES %@", userNameRegEx)
+        let userNameTest = NSPredicate(format: selfMache, userNameRegEx)
         return userNameTest.evaluate(with: self.text)
     }
     

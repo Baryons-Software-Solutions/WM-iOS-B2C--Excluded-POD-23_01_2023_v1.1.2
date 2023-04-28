@@ -46,6 +46,8 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
     var payTabsPaymentProfileID: String      = ""
     var paymentsCallingCount                 = 0
     var totalConsoldatedAmount               = 0.0
+    var myCart = "My Cart"
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +90,7 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
     }
     
     func UIElementsSetUp(){
-        self.titleLabel.text = "My Cart"
+        self.titleLabel.text = myCart
     }
     
     @IBAction func BtnAddPrroducts(_ sender: Any) {
@@ -246,7 +248,7 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
                                 }
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 hideLoader()
                             }
@@ -454,7 +456,7 @@ class MyCartViewController: UIViewController, PaymentManagerDelegate {
                         }))
                         self.present(alert, animated: true, completion: nil)
                     } else{
-                        print("Session Error: ")
+                        print(self.sessionError)
                         self.showToast(message: Constants.AlertMessage.error)
                     }
                 } else {
@@ -497,10 +499,10 @@ extension MyCartViewController{
                                 }
                             }
                         } else {
-                            print("Session Error: ")
+                            print(self.sessionError)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -546,7 +548,7 @@ extension MyCartViewController{
                                 self.showMinOrderValidation()
                                 self.tabBarController?.tabBar.items![2].badgeValue = "\(self.arrCartListResponse.first?.cart?.count ?? 0)"
                             } else {
-                                self.titleLabel.text            = "My Cart"
+                                self.titleLabel.text            = myCart
                                 self.tableViewStackview.isHidden = true
                                 self.btnAddproduct.isHidden = false
                                 self.lblEmptycart.isHidden = false
@@ -556,7 +558,7 @@ extension MyCartViewController{
                                 self.nodataAvailable.text = dicResponseData.message
                             }
                         } else {
-                            self.titleLabel.text            = "My Cart"
+                            self.titleLabel.text            = myCart
                             self.btnAddproduct.isHidden = false
                             self.lblEmptycart.isHidden = false
                             self.lbladdsome.isHidden = true
@@ -565,14 +567,14 @@ extension MyCartViewController{
                             self.tableViewStackview.isHidden = true
                         }
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(sessionError,err)
                         self.btnAddproduct.isHidden = false
                         self.lblEmptycart.isHidden = false
                         self.lbladdsome.isHidden = true
                         self.imgcart.isHidden = false
                         self.ordersTableView.isHidden = true
                         self.tableViewStackview.isHidden = true
-                        self.titleLabel.text            = "My Cart"
+                        self.titleLabel.text            = myCart
                         NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: 0)
                         self.tabBarController?.tabBar.items![2].badgeValue = nil
                     }
@@ -671,7 +673,7 @@ extension MyCartViewController : UITableViewDataSource, UITableViewDelegate{
                         self.wsCartGet()
                         print(Data())
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{

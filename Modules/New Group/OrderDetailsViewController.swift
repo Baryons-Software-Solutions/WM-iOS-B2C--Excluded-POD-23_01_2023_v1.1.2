@@ -101,6 +101,8 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     var paymentsCallingCount = 0
     var isMarkAsReceived     = false
     var displayChangeQty    = true
+    var applicationJson = "application/json"
+    var sessionError = "Session Error: "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,8 +170,8 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     @IBAction func downloadAction(_ sender: Any) {
         var getRequest = URLRequest(url: URL(string: "\(Constants.WebServiceURLs.DownloadInvoiceURL)\(orderId)")!)
         getRequest.httpMethod = "GET"
-        getRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        getRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        getRequest.addValue(applicationJson, forHTTPHeaderField: "Content-Type")
+        getRequest.addValue(applicationJson, forHTTPHeaderField: "Accept")
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
             getRequest.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
         }
@@ -193,6 +195,7 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     }
     
     @IBAction func deliveryAddressButton(_ sender: Any) {
+        print("")
         
     }
     
@@ -207,6 +210,7 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     }
     
     @IBAction func addnotesAction(_ sender: Any) {
+        print("")
         
     }
     
@@ -321,7 +325,7 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     @IBAction func markAsReadAction(_ sender: Any) {
         self.bckView.isHidden = false
         self.vwNotes.isHidden = false
-        self.lblNotesPopupTitle.text = "Add Notes"
+        self.lblNotesPopupTitle.text = "AddNotes"
     }
     
     @IBAction func btnPayNow(_ sender: Any) {
@@ -418,7 +422,7 @@ extension OrderDetailsViewController{
         let url = Constants.WebServiceURLs.pricingCheck
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(applicationJson, forHTTPHeaderField: "Content-Type")
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.accessToken.rawValue){
             request.setValue("Bearer " + (USERDEFAULTS.getDataForKey(.accessToken) as! String), forHTTPHeaderField: "Authorization")
         }
@@ -426,6 +430,7 @@ extension OrderDetailsViewController{
             let task = session.dataTask(with: request as URLRequest as URLRequest, completionHandler: {(data, response, error) in
                 hideLoader()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    print("")
                 }
                 if let response = response {
                     let nsHTTPResponse = response as! HTTPURLResponse
@@ -451,7 +456,7 @@ extension OrderDetailsViewController{
                                 }
                             }
                         } catch let error as NSError {
-                            print("Session Error: ",error)
+                            print(self.sessionError,error)
                             DispatchQueue.main.async {
                                 hideLoader()
                             }
@@ -613,7 +618,7 @@ extension OrderDetailsViewController{
                             self.present(alert, animated: true, completion: nil)
                         }
                     } else{
-                        print("Session Error: ")
+                        print(self.sessionError)
                         self.showToast(message: Constants.AlertMessage.error)
                     }
                 } else {
@@ -731,6 +736,7 @@ extension OrderDetailsViewController : UITableViewDataSource, UITableViewDelegat
         
     }
     @objc func btnOrderNotes(sender:UIButton) {
+        print("")
         
     }
 }
@@ -764,13 +770,14 @@ extension OrderDetailsViewController{
                             }))
                             self.present(alert, animated: true) {
                                 DispatchQueue.main.async {
+                                    print("")
                                 }
                             }
                         } else {
-                            print("Session Error: ")
+                            print(self.sessionError)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -800,7 +807,7 @@ extension OrderDetailsViewController{
                             self.arrProductsInfo = response.data?.order?.productsInfo ?? [ProductsInfo]()
                             self.arrLogs.append(contentsOf: response.data?.order!.logs ?? [])
                             if self.arrProductsInfo.count == 0 {
-                                self.showCustomAlert(message: "No records found.",isSuccessResponse: false)
+                                self.showCustomAlert(message: "No recordsfound.",isSuccessResponse: false)
                                 self.nodataLabel.isHidden = false
                                 self.nodataView.isHidden = false
                                 self.nodataLabel.text = "No records found."
@@ -827,7 +834,7 @@ extension OrderDetailsViewController{
                                 self.payNow.isHidden = false
                                 if self.orderResponse?.supplierID == "5fe9bd17e01343382c2ada9e"  {
                                     self.paidLabel.text = self.orderResponse?.statusName.rawValue
-                                    self.paymentStatus = "Pay Now"
+                                    self.paymentStatus = "PayNow"
                                     self.paidLabel.text = "Pay Now"
                                     self.paidLabel.textColor = .white
                                     self.paidLabel.backgroundColor = .gray
@@ -835,7 +842,7 @@ extension OrderDetailsViewController{
                                     self.paymentStatusBottomlabel.text = "Pay Now"
                                 } else {
                                     self.paidLabel.text = self.orderResponse?.statusName.rawValue
-                                    self.paymentStatus = "Not Paid"
+                                    self.paymentStatus = "NotPaid"
                                     self.paidLabel.text = "Not Paid"
                                     self.paymentStatusBottomlabel.text = "Not Paid"
                                     self.paidLabel.backgroundColor = .red
@@ -891,8 +898,8 @@ extension OrderDetailsViewController{
                         }
                     } catch let err {
                         print("Session Err \(err)")
-                        print("Session Error: ",err)
-                        self.showCustomAlert(message: "No records found.",isSuccessResponse: false)
+                        print(self.sessionError,err)
+                        self.showCustomAlert(message: "Norecords found.",isSuccessResponse: false)
                         self.nodataLabel.isHidden = false
                         self.nodataView.isHidden = false
                         self.nodataLabel.text = "No records found."
@@ -924,7 +931,7 @@ extension OrderDetailsViewController{
                             self.wsOrderBuyerListView()
                             
                         }                    }catch let err {
-                            print("Session Error: ",err)
+                            print(self.sessionError,err)
                         }
                 }
                 else{
@@ -991,7 +998,7 @@ extension OrderDetailsViewController{
                         self.vwNotes.isHidden = true
                         self.wsOrderBuyerListView()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1043,7 +1050,7 @@ extension OrderDetailsViewController{
                             self.showCustomAlert(message: dicResponseData.message)
                         }
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1068,7 +1075,7 @@ extension OrderDetailsViewController{
                         self.showCustomAlert(message: dicResponseData.message)
                         self.wsOrderBuyerListView()
                     }catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 }
                 else{
@@ -1096,7 +1103,7 @@ extension OrderDetailsViewController{
                         self.customProductView.isHidden = true
                         self.showCustomAlert(message: dicResponseData.message)
                     } catch let err {
-                        print("Session Error: ",err)
+                        print(self.sessionError,err)
                     }
                 } else {
                     self.showCustomAlert(message: Constants.AlertMessage.error,isSuccessResponse: false)
