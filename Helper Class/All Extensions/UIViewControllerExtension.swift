@@ -95,61 +95,6 @@ extension UIViewController: UITextFieldDelegate, UITextViewDelegate, UINavigatio
     var isTabBarVisible: Bool {
         return (self.tabBarController?.tabBar.frame.origin.y ?? 0) < self.view.frame.maxY
     }
-    
-//    func navigateBackToViewController(identifier : String, storyboardName: String, viewControllerClass: UIViewController){
-//        DispatchQueue.main.async {
-//            var available = false
-//            let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-//            UserDefaults.standard.setValue(false, forKey: identifier)
-//            
-//            if #available(iOS 13.0, *) {
-//                let popScreen = storyboard.instantiateViewController(identifier: identifier)
-//                let keyWindow = UIApplication.shared.connectedScenes
-//                    .filter({$0.activationState == .foregroundActive})
-//                    .map({$0 as? UIWindowScene})
-//                    .compactMap({$0})
-//                    .first?.windows
-//                    .filter({$0.isKeyWindow}).first
-//                let navigationController = keyWindow?.rootViewController as? UINavigationController
-//                if let viewControllers = navigationController?.viewControllers {
-//                    for vc in viewControllers {
-//                        if vc.isKind(of: viewControllerClass.classForCoder) {
-//                            navigationController!.popToViewController(vc, animated: true)
-//                            available = true
-//                            break
-//                        }
-//                    }
-//                    if !available{
-//                        if storyboardName == "TabBar"{
-//                            (popScreen as? TabbarViewController)!.selectedIndex = 2;
-//                        }
-//                        navigationController?.pushViewController(popScreen, animated: true)
-//                    }
-//                    
-//                }
-//            } else {
-//                for controller in self.navigationController!.viewControllers as Array {
-//                    if controller.isKind(of: viewControllerClass.classForCoder) {
-//                        _ =  self.navigationController!.popToViewController(controller, animated: true)
-//                        available = true
-//                        break
-//                    }
-//                }
-//                if !available{
-//                    let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-//                    let nextScreen = storyboard.instantiateViewController(withIdentifier: identifier)
-//                    nextScreen.modalTransitionStyle = .crossDissolve
-//                    if storyboardName == "TabBar"{
-//                        (nextScreen as? TabbarViewController)!.selectedIndex = 2;
-//                    }
-//                    self.navigationController?.pushViewController(nextScreen, animated: true)
-//                }
-//                
-//            }
-//        }
-//    }
-    
-    
 }
 
 extension UIViewController {
@@ -171,10 +116,6 @@ extension UIViewController {
         view.layer.add(transition, forKey: kCATransition)
     }
     func openMenu()  {
-        //        if isFromMenu{
-        //             isFromMenu = !isFromMenu
-        //        }
-        //
         sideMenuController?.showLeftView(animated:true)
     }
     func backMenu() {

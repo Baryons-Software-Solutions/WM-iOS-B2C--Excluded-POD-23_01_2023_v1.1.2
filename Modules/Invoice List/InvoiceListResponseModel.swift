@@ -97,20 +97,4 @@ struct Invoice: Codable {
     }
     
 }
-// MARK: - OutletInfo
-//struct OutletInfo: Codable {
-//
-//
-//    let Logo,Name: String
-//    let PhoneNumber,MobileNumber,CountryCode,email: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case Name = "name"
-//        case Logo = "logo"
-//        case PhoneNumber = "phone_number"
-//        case MobileNumber = "mobile_number"
-//        case CountryCode = "country_code"
-//        case email = "email"
-//
-//    }
-//}
+

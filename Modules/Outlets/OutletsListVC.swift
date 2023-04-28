@@ -68,6 +68,7 @@ class OutletsListVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
+            print("")
         } else {
             hideLoader()
             self.wsOutlet()
@@ -81,7 +82,7 @@ class OutletsListVC: UIViewController {
     func performAction() {
         strSearch = txtSearch.text ?? ""
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
-            
+            print("")
         } else {
             self.wsOutlet()
         }
@@ -95,7 +96,7 @@ class OutletsListVC: UIViewController {
         }
         var paramDic = Dictionary<String, AnyObject>()
         paramDic [Constants.WebServiceParameter.paramBuyerId] = (USERDEFAULTS.getDataForKey(.user_type_id)) as AnyObject
-        let paramStr = "\(Constants.WebServiceParameter.paramSort)=ASC&\(Constants.WebServiceParameter.paramSortBy)=outlet_name&\(Constants.WebServiceParameter.paramPage)=\("")&\(Constants.WebServiceParameter.paramKeyword)=\(strSearch)&\(Constants.WebServiceParameter.paramBuyerId)=\((USERDEFAULTS.getDataForKey(.user_type_id)))"
+        let paramStr = "\(Constants.WebServiceParameter.paramSort)=ASC&\(Constants.WebServiceParameter.paramSortBy)=outlet_name&\(Constants.WebServiceParameter.paramPage)=\("")&\(Constants.WebServiceParameter.paramKeyword)=\(strSearch)&\(Constants.WebServiceParameter.paramBuyerId)=\(USERDEFAULTS.getDataForKey(.user_type_id))"
         hideLoader()
         APICall().post(apiUrl: Constants.WebServiceURLs.outletListURL, requestPARAMS: paramStr, isTimeOut: false){
             (success, responseData) in DispatchQueue.main.async { [self] in
@@ -365,6 +366,7 @@ extension OutletsListVC: UITableViewDelegate, UITableViewDataSource {
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WarehouseOutletListTblCell", for: indexPath as IndexPath) as? WarehouseOutletListTblCell
                 if self.arrOutletList[indexPath.row].outletLogo != nil && self.arrOutletList[indexPath.row].outletLogo != "" {
+                    print("")
                 }
                 cell?.lblName.text = self.arrOutletList[indexPath.row].outletName
                 cell?.lblAdress.text = "\(self.arrOutletList[indexPath.row].address),\(self.arrOutletList[indexPath.row].area),\(self.arrOutletList[indexPath.row].city),\(self.arrOutletList[indexPath.row].country)"

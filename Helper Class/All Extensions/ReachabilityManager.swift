@@ -19,8 +19,8 @@ class ReachabilityManager: NSObject {
 
     
     @objc func reachabilityChanged(notification: Notification) {
-        let reachability = notification.object as? Reachability
-        switch reachability?.connection {
+        let reachability1 = notification.object as? Reachability
+        switch reachability1?.connection {
         case .none:
             debugPrint("Network became unreachable")
             

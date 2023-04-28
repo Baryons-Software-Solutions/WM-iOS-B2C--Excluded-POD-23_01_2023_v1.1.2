@@ -10,7 +10,6 @@
 import Foundation
 var selfMache = "SELF MATCHES %@"
 extension UITextField: UITextFieldDelegate {
-    //    static var localizedTexts:String? = nil;
     
     func enableTapOnTextfield(callBack : @escaping TextFieldChangeValueHandler) {
         self.isTextEnable = false
@@ -86,12 +85,11 @@ extension UITextField: UITextFieldDelegate {
     
     var dynamicFontSize: Bool {
         set {
-            if newValue {
                 if newValue {
                     if  font != nil {
+                        print("")
                     }
                 }
-            }
         }
         get {
             return false

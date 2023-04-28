@@ -25,13 +25,11 @@ extension UIButton {
     
     var dynamicFontSize: Bool {
         set {
-            if newValue {
                 if newValue {
                     if (titleLabel?.font) != nil {
                         // titleLabel?.font = fonts.scaleFont()
                     }
                 }
-            }
         }
         get {
             return false

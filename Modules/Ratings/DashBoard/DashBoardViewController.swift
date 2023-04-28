@@ -764,7 +764,7 @@ extension DashBoardViewController {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == searchTextField {
-            
+            print("")
         }
     }
 }

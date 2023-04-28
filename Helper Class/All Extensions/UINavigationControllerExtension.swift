@@ -12,15 +12,7 @@ extension UINavigationController {
     override func topMostViewController() -> UIViewController {
         return self.visibleViewController!.topMostViewController()
     }
-    //    func addShadowToNavigation() {
-    //        self.navigationBar.shadowImage = UIImage()
-    //        if #available(iOS 11.0, *) {
-    //            let aColor = UIColor(named: "customControlColor")
-    //        } else {
-    //            // Fallback on earlier versions
-    //        }
-    //        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: aColor!, NSAttributedString.Key.font: font(name: .hindMedium, size: 26)]
-    //    }
+
     
     @IBInspectable var barTintColor: UIColor? {
         set {

@@ -696,12 +696,7 @@ extension MyCartDetailsViewController {
                             let alert = UIAlertController(title: "Message", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.destructive, handler: { action in
                                 //Baryons team commented below code,
-                                //becaause after placing the payment navigating to Order list page as per the Android APP
-                                //                                                        if let objPlacedOrderViewVC = mainStoryboard.instantiateViewController(withIdentifier: "PlacedOrderViewVC") as? PlacedOrderViewVC {
-                                //                                objPlacedOrderViewVC.orderId = orderId
-                                //                                objPlacedOrderViewVC.routeFrom = "payment"
-                                //                                self.navigationController?.pushViewController(objPlacedOrderViewVC, animated: true)
-                                //                        }
+                        
                                 //Baryons added the
                                 let dashboardvc = mainStoryboard.instantiateViewController(withIdentifier: "TabbarViewController") as? UITabBarController
                                 dashboardvc?.selectedIndex = 1

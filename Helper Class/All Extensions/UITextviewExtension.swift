@@ -9,7 +9,6 @@
 
 import Foundation
 extension UITextView {
-    //    static var localizedTexts:String? = nil;
     
     open override func awakeFromNib() {
         dynamicFontSize = true
@@ -17,13 +16,11 @@ extension UITextView {
     
     var dynamicFontSize: Bool {
         set {
-            if newValue {
                 if font != nil {
                     //   font = fonts.scaleFont()
                     
                     // font = UIFont(name: (font!.fontName), size: (font?.pointSize)! * (UIScreen.main.bounds.size.width/320))
                 }
-            }
         }
         get {
             return false

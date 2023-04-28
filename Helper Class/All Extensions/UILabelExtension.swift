@@ -17,13 +17,11 @@ extension UILabel {
     
     var dynamicFontSize: Bool {
         set {
-            if newValue {
                 if newValue {
                     if font != nil {
                         //   font = fonts.scaleFont()
                     }
                 }
-            }
         }
         get {
             return false
@@ -48,34 +46,6 @@ extension UILabel {
         set {
             objc_setAssociatedObject(self, &Keys.LabelValueKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
-    }
-    
-    //    @IBInspectable var lineSpacing: CGFloat {
-    //        get
-    //        {
-    //            return 1
-    //        }
-    //        set
-    //        {
-    //            objc_setAssociatedObject(self, &Keys.LabelLineSpacingKey, newValue, .OBJC_ASSOCIATION_RETAIN)
-    //            self.updateWithSpacing(lineSpacing: Float(newValue))
-    //        }
-    //    }
-    
-    private func updateWithSpacing(lineSpacing: Float) {
-        // The attributed string to which the
-        // paragraph line spacing style will be applied.
-        let attributedString = NSMutableAttributedString(string: self.text ?? "")
-        let mutableParagraphStyle = NSMutableParagraphStyle()
-        // Customize the line spacing for paragraph.
-        mutableParagraphStyle.lineSpacing = CGFloat(lineSpacing)
-        
-        if let stringLength = self.text?.count {
-            attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: mutableParagraphStyle, range: NSRange(location: 0, length: stringLength))
-        }
-        // textLabel is the UILabel subclass
-        // which shows the custom text on the screen
-        self.attributedText = attributedString
     }
     
     func setLineHeight() {
@@ -112,8 +82,6 @@ extension UILabel {
     
     func addTrailing(with trailingText: String, moreText: String, moreTextFont: UIFont, moreTextColor: UIColor) {
         let readMoreText: String = trailingText + moreText
-        
-        // if self.visibleTextLength == 0 { return }
         
         let lengthForVisibleString: Int = 60
         

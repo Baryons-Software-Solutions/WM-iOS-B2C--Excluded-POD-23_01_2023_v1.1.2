@@ -666,6 +666,7 @@ extension ProductDetailsVC {
                                 dateFormatter.dateFormat = "dd/MM/yyyy"
                                 let dateString = dateFormatter.string(from: StringDate ?? Date())
                                 if self.arrCartProductListResponse[singleDict ?? 0].notes?.rawValue == nil {
+                                    print("")
                                 }
                                 self.cartID =  self.arrCartProductListResponse[singleDict ?? 0].id
                                 if let profileId = self.arrCartProductListResponse[0].supplierInfo.supplierProfileID?.rawValue, profileId != ""  {

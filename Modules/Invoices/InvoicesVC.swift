@@ -1516,7 +1516,7 @@ extension InvoicesVC: UITableViewDelegate, UITableViewDataSource{
         let controller = mainStoryboard.instantiateViewController(withIdentifier: "PaymentHistoryVC") as? PaymentHistoryVC
         controller?.isHistory = false
         controller?.arrPayment = self.arrDraftOrderResponse[sender.tag].payments!
-        let sheetController = SheetViewController(controller: controller!, sizes: [SheetSize.fixed(CGFloat((100 + (118 * self.arrDraftOrderResponse[sender.tag].payments!.count))))])
+        let sheetController = SheetViewController(controller: controller!, sizes: [SheetSize.fixed(CGFloat(100 + (118 * self.arrDraftOrderResponse[sender.tag].payments!.count)))])
 
         self.present(sheetController, animated: false, completion: nil)
     }

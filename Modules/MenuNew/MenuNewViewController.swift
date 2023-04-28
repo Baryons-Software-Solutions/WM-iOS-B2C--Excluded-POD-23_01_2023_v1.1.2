@@ -83,14 +83,14 @@ class MenuNewViewController: UIViewController {
             menuTableView.layer.borderColor = UIColor(hexFromString: "#DCDCDC").cgColor
             uiInitialization()
             NotificationCenter.default.addObserver(self, selector: #selector(collecionCellSelection(_:)), name: NSNotification.Name(rawValue: "passing_index"), object: nil)
-            let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+            let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
             profileImageView.kf.indicatorType = .activity
             profileImageView.kf.setImage(
                 with: url,
                 placeholder: UIImage(named: "ic_profile"),
                 options: nil)
             print(url)
-            self.profileImageView.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+            self.profileImageView.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
             print(profileImageView)
             if (USERDEFAULTS.getDataForKey(.weightage)) as? Int ?? 1 >= 100{
                 self.ProgressBar.value = 100
@@ -106,14 +106,14 @@ class MenuNewViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+        let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
         profileImageView.kf.indicatorType = .activity
         profileImageView.kf.setImage(
             with: url,
             placeholder: UIImage(named: "ic_profile"),
             options: nil)
         print(url)
-        self.profileImageView.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+        self.profileImageView.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
         if (USERDEFAULTS.getDataForKey(.weightage)) as? Int ?? 1 >= 100{
             self.ProgressBar.value = 100
             self.PecentageTextField.isHidden = true
@@ -191,11 +191,7 @@ class MenuNewViewController: UIViewController {
                         self.navigationController?.pushViewController(NeedHelpVC, animated: true)
                     }
                 }else if topic == "Reports"{
-                    
-//                    if let ReportVC = mainStoryboard.instantiateViewController(withIdentifier: "ReportVC") as? ReportVC {
-//                        ReportVC.modalPresentationStyle = .fullScreen
-//                        self.navigationController?.pushViewController(ReportVC, animated: true)
-//                    }
+                
                     
                 }else if topic == "Invoices"{
                     if let objChangePasswordVC = mainStoryboard.instantiateViewController(withIdentifier: "InvoicesVC") as? InvoicesVC {

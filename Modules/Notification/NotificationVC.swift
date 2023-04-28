@@ -162,7 +162,7 @@ class NotificationVC: UIViewController {
     }
     @IBAction func markAllasReadAction(_ sender: Any) {
         if String(describing: USERDEFAULTS.getDataForKey(.isLogin)) == "false" {
-            
+          print("")
         }else{
             notiview.isHidden = false
             bgview.isHidden = false

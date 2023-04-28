@@ -185,7 +185,7 @@ class OrderDetailsViewController: UIViewController  ,PaymentManagerDelegate, URL
     @IBAction func invoiceAction(_ sender: Any) {
         let controller = mainStoryboard.instantiateViewController(withIdentifier: "LogHistoryVC") as? LogHistoryVC
         controller?.arrLogs = self.arrLogs
-        let sheetController = SheetViewController(controller: controller!, sizes: [SheetSize.fixed(CGFloat((100 + (118 * self.arrLogs.count))))])
+        let sheetController = SheetViewController(controller: controller!, sizes: [SheetSize.fixed(CGFloat(100 + (118 * self.arrLogs.count)))])
 
         self.present(sheetController, animated: false, completion: nil)
     }

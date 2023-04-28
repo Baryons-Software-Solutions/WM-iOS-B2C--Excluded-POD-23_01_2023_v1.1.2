@@ -405,6 +405,7 @@ class DeliveryVC: UIViewController {
     }
     @IBAction func btnClearFilter(_ sender: Any) {
         if String(describing: USERDEFAULTS.getDataForKey(.user_type)) == "2" {
+            print("")
         } else {
             self.arrUpcomingDeliveryResponse.removeAll()
             wsUpcomingDelivery(status: "-1", supplierId: "", OutletId: "", search: strSearch)
@@ -461,10 +462,7 @@ extension DeliveryVC: UITableViewDelegate, UITableViewDataSource{
         header.textLabel?.textColor = UIColor.white
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let objInvoiceDetailVC = mainStoryboard.instantiateViewController(withIdentifier: "DeliveryDetailVC") as? DeliveryDetailVC {
-//            objInvoiceDetailVC.orderId = self.arrUpcomingDeliveryResponse[indexPath.row].id
-//            self.navigationController?.pushViewController(objInvoiceDetailVC, animated: true)
-//        }
+
     }
     //MARK: - UIScrollView Method
     // This are used for scroll View Delegate for more data

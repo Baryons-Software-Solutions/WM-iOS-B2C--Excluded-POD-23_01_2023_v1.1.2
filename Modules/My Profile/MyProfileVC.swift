@@ -67,7 +67,7 @@ class MyProfileVC: UIViewController {
             
         }
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.user_middle_name.rawValue){
-            
+            print("")
         }
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.user_phone.rawValue){
             self.txtMobileNumber.text = (USERDEFAULTS.getDataForKey(.user_phone)) as? String
@@ -75,12 +75,13 @@ class MyProfileVC: UIViewController {
         }
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.userPic.rawValue){
             if USERDEFAULTS.getDataForKey(.userPic) as? String != "" {
-                self.imgUserPhoto.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+                self.imgUserPhoto.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
                 
                 self.imgUserPhoto.cornerRadius = self.imgUserPhoto.frame.height / 2
             }
         }
         if isKeyPresentInUserDefaults(key: UserDefaultsKeys.designation.rawValue){
+            print("")
         }
         // Do any additional setup after loading the view.*/
     }
@@ -155,6 +156,7 @@ class MyProfileVC: UIViewController {
                     USERDEFAULTS.setDataForKey(arrLoginData[0].designation ?? "" , .designation)
                     USERDEFAULTS.setDataForKey(arrLoginData[0].notified ?? "" , .getNotified)
                     if isKeyPresentInUserDefaults(key: UserDefaultsKeys.user_first_name.rawValue){
+                        print("")
                     }
                     
                     if isKeyPresentInUserDefaults(key: UserDefaultsKeys.user_first_name.rawValue){
@@ -169,7 +171,7 @@ class MyProfileVC: UIViewController {
                     }
                     if isKeyPresentInUserDefaults(key: UserDefaultsKeys.userPic.rawValue){
                         if USERDEFAULTS.getDataForKey(.userPic) as? String != "" {
-                            self.imgUserPhoto.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+                            self.imgUserPhoto.setImage(with: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
                         }
                     }
                 } else {
@@ -187,7 +189,7 @@ class MyProfileVC: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
-        let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (USERDEFAULTS.getDataForKey(.userPic)))")
+        let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( USERDEFAULTS.getDataForKey(.userPic))")
     }
     
     @objc func donePickerCountryCode() {

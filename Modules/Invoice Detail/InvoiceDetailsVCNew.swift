@@ -77,7 +77,7 @@ extension InvoiceDetailsVCNew: UITableViewDelegate, UITableViewDataSource {
       objInvoiceDetailTblCell?.lblPricePerUnit.text = "AED \(self.arrProductsInfo[indexPath.row].pricePerUnit?.rawValue ?? "0") (*\(self.arrProductsInfo[indexPath.row].qty?.intValue ?? 0))"
       objInvoiceDetailTblCell?.lblTotalProductPrice.text = "AED \(self.arrProductsInfo[indexPath.row].netPrice?.rawValue ?? "0")"
       
-      let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( (self.arrProductsInfo[indexPath.row].productImage))")
+      let url = URL(string: "\(Constants.WebServiceURLs.fetchPhotoURL)\( self.arrProductsInfo[indexPath.row].productImage)")
       objInvoiceDetailTblCell?.imgProduct.kf.indicatorType = .activity
       objInvoiceDetailTblCell?.imgProduct.kf.setImage(
         with: url,
@@ -322,12 +322,7 @@ extension InvoiceDetailsVCNew {
                         self.supplierName.text = self.arrInvoice[0].supplierInfo.supplierName?.rawValue
                         self.supplierAddress.text = "Outlet: \(self.arrInvoice[0].supplierInfo.supplierAddress?.rawValue ?? "")"
                       }
-//                      if let billAddress = data.invoice?.billingAddress {
-//                          self.billingAddress = billAddress
-//                      }
-//                      if let delvAddress = data.invoice?.deliveryAddress {
-//                          self.deliveryAddress = delvAddress
-//                      }
+
                       
                       if self.arrProductsInfo.count > 0 {
                         self.tblInvoiceItem.reloadData()

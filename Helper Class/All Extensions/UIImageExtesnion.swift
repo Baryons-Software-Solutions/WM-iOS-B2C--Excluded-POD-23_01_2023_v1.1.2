@@ -9,10 +9,7 @@
 
 import Foundation
 extension UIImage {
-    //    class func imageResize(_ img: UIImage, andResizeTo newSize: CGSize) -> UIImage {
-    //        return img.imageScaled(toFit: newSize)
-    //    }
-    
+ 
     func getPixelColor(atLocation location: CGPoint, withFrameSize size: CGSize) -> UIColor {
         let x: CGFloat = (self.size.width) * location.x / size.width
         let y: CGFloat = (self.size.height) * location.y / size.height

@@ -169,6 +169,7 @@ class NeedHelpVC: UIViewController {
                         let dicResponseData = try decoder.decode(GenralResponseModel.self, from: responseData as! Data)
                         self.showCustomAlert(message: dicResponseData.message)
                         if dicResponseData.success == "1" {
+                            print("")
                         }
                     }catch let err {
                         print("Session Error: ",err)
