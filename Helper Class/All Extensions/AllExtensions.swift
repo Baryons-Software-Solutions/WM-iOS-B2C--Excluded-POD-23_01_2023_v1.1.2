@@ -12,8 +12,6 @@ import Reachability
 import UIKit
 @_exported import ViewAnimator
 
-class AllExtensions: NSObject {}
-
 typealias EmptyCallBackClosure = () -> Void
 typealias ButtonCallBackClosure = (_ sender: UIButton) -> Void
 typealias GestureCallBackClosure = (_ sender: UITapGestureRecognizer) -> Void
@@ -208,7 +206,6 @@ class LifeCycleView: UIView {
         
         if newWindow == nil {
             // UIView disappear
-        
         }
     }
     
@@ -221,3 +218,4 @@ public enum PanDirection: Int {
     
     public var isHorizontal: Bool { return !isVertical }
 }
+
